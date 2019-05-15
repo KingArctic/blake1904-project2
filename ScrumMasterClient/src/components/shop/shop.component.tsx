@@ -1,23 +1,32 @@
 import React from 'react';
 import { ShopCardComponent } from './shop-card.component';
+import { Item } from '../../model/item';
 
 interface IShopState {
-    numlist: number[],
+    itemlist: Item[],
 }
 
 export class ShopComponent extends React.Component<any, IShopState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            numlist: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            itemlist: [],
         };
+    }
+
+    async componentDidMount() {
+        const resp = await fetch('http://localhost:8081/shopitem', { method: 'GET', credentials: 'include' })
+        const body = await resp.json();
+        await this.setState({
+            itemlist: body
+        });
     }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    {this.state.numlist.map(number => (<ShopCardComponent />))}
+                    {this.state.itemlist.map(item => (<ShopCardComponent item={item}/>))}
                 </div>
             </div>
         )
