@@ -1,4 +1,4 @@
-package com.revature.util;
+package com.project2.util;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonStreamContext;

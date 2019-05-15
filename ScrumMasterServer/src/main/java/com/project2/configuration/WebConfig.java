@@ -1,4 +1,4 @@
-package com.revature.configuration;
+package com.project2.configuration;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import com.revature.util.DeepFieldFilter;
+import com.project2.util.DeepFieldFilter;
 
 @Configuration
 @EnableWebMvc
