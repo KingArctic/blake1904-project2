@@ -130,3 +130,15 @@ nav {
 #examples-dropdown {
   cursor: pointer;
 }
+
+.shop-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: '5px';
+  height: '5px';
+  border-radius: 50%;
+}

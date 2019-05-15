@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RevLogo from '../../assets/rev-logo.png';
-import { IClickerState, IState } from '../../reducers';
-import { connect } from 'react-redux';
 import { User } from '../../model/user';
 
 interface INaveProps {
-  clicker: IClickerState,
   currentUser?: User
 }
 
@@ -46,9 +43,6 @@ export class NavComponent extends React.PureComponent<INaveProps> {
               <Link to="/second" className="unset-anchor nav-link">Second</Link>
             </li>
             <li className="nav-item active">
-              <Link to="/clicker" className="unset-anchor nav-link">Clicker {this.props.clicker.clicks}</Link>
-            </li>
-            <li className="nav-item active">
               <Link to="/spaceships" className="unset-anchor nav-link">Spaceships</Link>
             </li>
             <li className="nav-item active dropdown">
@@ -71,11 +65,3 @@ export class NavComponent extends React.PureComponent<INaveProps> {
   }
 }
 
-const mapStateToProps = (state: IState) => {
-  return {
-    clicker: state.clicker,
-    currentUser: state.auth.currentUser
-  }
-}
-
-export default connect(mapStateToProps)(NavComponent);
