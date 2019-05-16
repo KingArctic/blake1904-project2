@@ -143,6 +143,7 @@ nav {
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
 @keyframes example {
   0%   {background-color: red;}  
   20%  {background-color: orange;}
@@ -158,4 +159,32 @@ button {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+=======
+#user-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#user-card-c{
+  border-width:  50px;
+}
+#user-info-content {
+  background-color: #2F2F2F;
+ border-width: 5px;
+  border-color: #AF00FF;
+  color: #FF00FF;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#user-card-content {
+  background-color: #2F2F2F;
+  border-width: 5px;
+   border-color: #AF00FF;
+   color: #FF00FF;
+}
+.titles {
+  color: #FFE82A
+>>>>>>> userPage
 }
