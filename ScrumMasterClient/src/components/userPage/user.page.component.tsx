@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, CardFooter, Button, CardTitle, Row, Col, Container } from 'reactstrap';
+import { Card, CardBody, CardTitle, Row, Container } from 'reactstrap';
 import { UserInfoComponent } from './user.info.component';
 import { User } from '../../model/user';
 import { UserIconComponent } from './user.icon.component';
