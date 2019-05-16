@@ -143,12 +143,30 @@ nav {
   border-radius: 50%;
 }
 
-.noline {
-  border-bottom: 0;
+#user-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.card-user {
-  display: flex;
+#user-card-c{
+  border-width:  50px;
+}
+#user-info-content {
+  background-color: #2F2F2F;
+ border-width: 5px;
+  border-color: #AF00FF;
+  color: #FF00FF;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-
+#user-card-content {
+  background-color: #2F2F2F;
+  border-width: 5px;
+   border-color: #AF00FF;
+   color: #FF00FF;
+}
+.titles {
+  color: #FFE82A
 }

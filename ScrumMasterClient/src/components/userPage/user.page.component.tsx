@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, CardBody, CardText, CardFooter, Button, CardTitle, ListGroup, ListGroupItem, Row, Col } from 'reactstrap';
+import { Card, CardBody, CardFooter, Button, CardTitle, Row, Col, Container } from 'reactstrap';
 import { UserInfoComponent } from './user.info.component';
 import { User } from '../../model/user';
 import { UserIconComponent } from './user.icon.component';
+import { UserAchieveComponent } from './user.achievements';
 
 interface IUPageProps {
     user: User[];
@@ -17,43 +18,27 @@ export class UserPageComponent extends React.Component<any, IUPageProps>{
 
     render() {
         return (
-            <div>
-                <Card className="card-user">
-                    <CardBody>
-                        <Row className="justify-content-md-center">
-                            <Col ><CardTitle>USERNAME</CardTitle></Col>
-                            <Col>
-                                <UserIconComponent user={this.props.user} /></Col>
-                            <Col>
-                            <CardTitle><h5 className="title">Rank</h5></CardTitle>
-                            <CardTitle>{"<"}Level{">"}</CardTitle>
-                            </Col>
+            <div id="user-page"  >
+                <Container id="user-card-c">
+                    <Card id="user-card-content">
+                        <CardBody className="justify-content-center text-center">
+                            <Row className="justify-content-md-center ">
+                                <UserIconComponent user={this.props.user} /></Row>
+                            <Row className="justify-content-center"><CardTitle><h5 className="titles">USERNAME</h5></CardTitle></Row>
+                            <Row className="justify-content-center"> <CardTitle><h5 className="title">Rank</h5></CardTitle></Row>
+                            <Row className="justify-content-center"> <CardTitle>{"<"}Level{">"}</CardTitle></Row>
 
-                        </Row>
-                    </CardBody>
-                    <CardFooter>
-                        <div>
-                            <h5 className="achievements"> Achievements</h5>
-                        </div>
-                        <div className="button-container">
-                            <img className="btn-icon btn-round"
-                                src="https://img.icons8.com/dusk/64/000000/prize.png"
-                                color="facebook" />
-
-                            <img className="btn-icon btn-round"
-                                src="https://img.icons8.com/dusk/64/000000/prize.png"
-                                color="facebook" />
-
-                            <img className="btn-icon btn-round"
-                                src="https://img.icons8.com/dusk/64/000000/prize.png"
-                                color="facebook" />
-
-                        </div>
-                    </CardFooter>
-                </Card>
-
-                <UserInfoComponent user={this.props.user}/>
-
+                        </CardBody>
+                    </Card>
+                </Container>
+                <Row>
+                <Container id="user-achieve-c">
+                    <UserAchieveComponent user={this.props.user}/>
+                </Container>
+                <Container id="user-info-c">
+                    <UserInfoComponent user={this.props.user} />
+                </Container>
+                </Row>
             </div>
         )
     }
