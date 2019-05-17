@@ -1,6 +1,6 @@
 import React from 'react';
 import { User } from '../../model/user';
-import { Container, Card, CardBody } from 'reactstrap';
+import {Card, CardBody } from 'reactstrap';
 
 interface IUserAchieveProps {
     user: User;
@@ -16,14 +16,17 @@ export class UserAchieveComponent extends React.Component<IUserAchieveProps> {
                 </div>
                 <div className="button-container">
                     <img className="btn-icon btn-round"
+                    alt="..."
                         src="https://img.icons8.com/dusk/64/000000/prize.png"
                         color="facebook" />
 
                     <img className="btn-icon btn-round"
+                    alt="..."
                         src="https://img.icons8.com/dusk/64/000000/prize.png"
                         color="facebook" />
 
                     <img className="btn-icon btn-round"
+                    alt="..."
                         src="https://img.icons8.com/dusk/64/000000/prize.png"
                         color="facebook" />
 
