@@ -1,5 +1,6 @@
 import React from 'react';
 import { User } from '../../model/user';
+import { RouteComponentProps } from 'react-router';
 
 interface IUserIconProps {
     user: User;

@@ -8,22 +8,29 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
-import { UserPageComponent } from './components/userPage/user.page.component';
+import  UserPageComponent  from './components/userPage/user.page.component';
+import { TitleComponent } from './components/titleComponent';
 
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
+      <div>
+      <TitleComponent/>
+      </div>
+      <br/>
+        <div className="main-content-container">
         <NavComponent />
-        <div id="main-content-container">
+        <div className="main-content-container">
           <Switch>
             <Route path="/home" component={HomeComponent} />
             <Route path="/sign-in" component={SignInComponent} />
             <Route path="/user-page" component={UserPageComponent} />
             <Route component={SISelectorComponent} />
           </Switch>
-        </div>
+          </div>
+          </div>
       </BrowserRouter>
     </Provider>
   );
