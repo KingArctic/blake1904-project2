@@ -10,7 +10,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
 import { UserPageComponent } from './components/userPage/user.page.component';
 
-
 const App: React.FC = () => {
   return (
     <Provider store={store}>
