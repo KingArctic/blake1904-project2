@@ -16,13 +16,13 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-      <div>
-      <TitleComponent/>
+      <div >
+      <NavComponent />
       </div>
       <br/>
-        <div className="main-content-container">
-        <NavComponent />
-        <div className="main-content-container">
+        <div id="main-content-container" style={{ paddingLeft: '10px' }}>
+        <TitleComponent/>
+        <div id="main-content-container">
           <Switch>
             <Route path="/home" component={HomeComponent} />
             <Route path="/sign-in" component={SignInComponent} />
