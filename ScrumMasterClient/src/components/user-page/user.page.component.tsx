@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, Row, Container } from 'reactstrap';
 import { UserInfoComponent } from './user.info.component';
-import { User } from '../../model/user';
 import { UserIconComponent } from './user.icon.component';
 import { UserAchieveComponent } from './user.achievements';
 import { IState, IAuthState } from '../../reducers';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
+import { User } from '../../model/user';
 
 
 interface IUPageProps extends RouteComponentProps {
