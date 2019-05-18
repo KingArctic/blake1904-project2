@@ -1,67 +1,81 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RevLogo from '../../assets/rev-logo.png';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
 import { User } from '../../model/user';
+import ClickOutside from './click.outside';
 
-interface INaveProps {
-  currentUser?: User
+
+// This is the state the Nav Bar
+interface INavBarState {
+  expanded: boolean
 }
 
-export class NavComponent extends React.PureComponent<INaveProps> {
-  render() {
-    const currentUser = this.props.currentUser;
-    return (
-      <nav className="navbar navbar-toggleable-md navbar-expand-lg navbar-dark bg-dark display-front nav-pad">
-        <div className="navbar-header c-pointer shift-left">
-          <Link to="/home" className="unset-anchor">
-            <img className="img-adjust-position rev-logo" src={RevLogo} alt="revature" />
-          </Link>
-        </div>
-        <div>{currentUser && currentUser.name}</div>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarsExample04">
-          <ul className="navbar-nav ml-auto margin-nav">
-            <li className="nav-item active">
-              <Link to="/home" className="unset-anchor nav-link">Home</Link>
-            </li>
-            {
-              currentUser
-                ? <li className="nav-item active">
-                  <Link to="/sign-in" className="unset-anchor nav-link">Sign Out</Link>
-                </li>
-                : <li className="nav-item active">
-                  <Link to="/sign-in" className="unset-anchor nav-link">Sign In</Link>
-                </li>
-            }
-
-            <li className="nav-item active">
-              <Link to="/first" className="unset-anchor nav-link">First</Link>
-            </li>
-            <li className="nav-item active">
-              <Link to="/second" className="unset-anchor nav-link">Second</Link>
-            </li>
-            <li className="nav-item active">
-              <Link to="/spaceships" className="unset-anchor nav-link">Spaceships</Link>
-            </li>
-            <li className="nav-item active dropdown">
-              <div className="nav-link dropdown-toggle pointer" id="examples-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Examples</div>
-              <div className="dropdown-menu" aria-labelledby="examples-dropdown">
-                <div className="dropdown-item"><Link to="/movies" className="unset-anchor nav-link active">Movies</Link></div>
-                <div className="dropdown-item"><Link to="/clicker" className="unset-anchor nav-link active">Clicker Game</Link></div>
-                <div className="dropdown-item"><Link to="/tic-tac-toe" className="unset-anchor nav-link active">Tic Tac Toe Game</Link></div>
-                <div className="dropdown-item"><Link to="/chuck-norris" className="unset-anchor nav-link active">Chuck Norris Jokes</Link></div>
-                <div className="dropdown-item"><Link to="/pokemon" className="unset-anchor nav-link active">Pokemon</Link></div>
-              </div>
-            </li>
-            <li className="nav-item active">
-              <Link to="/nested" className="unset-anchor nav-link">Nested</Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    );
+export class NavComponent extends React.Component<any, INavBarState> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expanded: false
+    }
   }
-}
+  render() {
+    return (
+      <ClickOutside 
+        onClickOutside={() => {
+          this.setState({ expanded: false });
+        }}
+      >
+        <SideNav style={{ marginTop: '159px' }}
+          expanded={this.state.expanded}
+          onToggle={(expanded) => {
+            this.setState({ expanded });
+          }}
+          id="sideNav" >
+          <SideNav.Toggle />
+          <SideNav.Nav defaultSelected="home">
 
+            <NavItem eventKey="home">
+              <NavIcon className="sidenav-icon">
+                <Link to="/home" ><img alt="Home"
+                  src="https://img.icons8.com/nolan/45/000000/home.png"></img></Link>
+              </NavIcon>
+              <NavText>
+                <Link to="/home" > <h5 className="nav_text titles">Home</h5> </Link>
+              </NavText>
+            </NavItem>
+
+            <NavItem eventKey="userPage">
+              <NavIcon>
+                <Link to="/user-page"><img alt="User Page"
+                  src="https://img.icons8.com/nolan/45/000000/contacts.png"></img></Link>
+              </NavIcon>
+              <NavText>
+                <Link to="/user-page"><h5 className="nav_text titles">My Page</h5></Link>
+              </NavText>
+            </NavItem>
+
+            <NavItem eventKey="questionMaster">
+              <NavIcon>
+                <Link to="/questionMaster"> <img alt="Question Master"
+                  src="https://img.icons8.com/nolan/45/000000/ask-question.png"></img></Link>
+              </NavIcon>
+              <NavText>
+                <Link to="/questionMaster"><h5 className="nav_text titles">Question Master</h5></Link>
+              </NavText>
+            </NavItem>
+
+            <NavItem eventKey="codingMaster">
+              <NavIcon>
+                <Link to="/codeMaster"><img alt="Coding Master" src="https://img.icons8.com/nolan/45/000000/e-learning.png"></img></Link>
+              </NavIcon>
+              <NavText>
+                <Link to="/codeMaster"><h5 className="nav_text titles">Code Master</h5></Link>
+              </NavText>
+            </NavItem>
+
+          </SideNav.Nav>
+        </SideNav >
+        </ClickOutside>
+        );
+      }
+    }
+    

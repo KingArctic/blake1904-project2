@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../titleComponent';
+
 import UserCard from '../userCard';
 import { User } from '../../model/user';
 import ProgressBarComponent from '../ProgressComponent';

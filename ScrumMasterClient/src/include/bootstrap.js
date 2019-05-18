@@ -2,7 +2,8 @@ import * as $ from 'jquery';
 import Popper from 'popper.js';
 import Tether from 'tether';
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css'
 
 window.Tether = Tether;
 window.Popper = Popper;

@@ -83,51 +83,7 @@ $screen-xl-min: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-
-/*****************************
-  NAV
-*****************************/
-.rev-logo {
-  width: auto;
-  height: 2em;
-  margin-right: 2em;
-}
-
-.margin-nav {
-  margin-right: 2em
-}
-
-
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-  color: rgba(0,0,0,.7);
-}
-
-.navbar-expand-md .navbar-nav .nav-link {
-  padding-right: .75rem !important;
-  padding-left: .75rem !important;
-}
-
-nav {
-  border-bottom: 1px solid #ffffff !important;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  -moz-box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  box-shadow: 1px -12px 28px -1px rgba(0, 0, 0, 0.87);
-  background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(2,57,145,0.7903536414565826) 44%,$primary-color 100%);
-
-  .dropdown-menu {
-    background-color: transparent;
-
-    @include lg {
-      background-color: $primary-color;
-    }
-
-    .dropdown-item:hover {
-      background-color: $primary-color-compliment;
-    }
-  }  
+  margin-left: 100px;
 }
 
 #examples-dropdown {
@@ -195,6 +151,7 @@ button {
 #user-card-c{
   border-width:  50px;
 }
+
 #user-info-content {
   background-color: #2F2F2F;
  border-width: 5px;
@@ -338,4 +295,26 @@ font-family: 'Quantico', sans-serif;
 .smallIcons{
   width: 30px;
   height: 30px;
+.author {
+  
+
+  color: #FFE82A;
+}
+//*********Nav Bar *********//
+#sideNav {
+  color: #FF00FF;
+  background-color: #2F2F2F;
+}
+
+.nav_text {
+  padding-left: 25px;
+  padding-top: 15px;
+}
+
+.sidenav-icon {
+  padding: 20px;
+}
+
+.sidenav---sidenav---_2tBP {
+  margin-top: 100;
 }

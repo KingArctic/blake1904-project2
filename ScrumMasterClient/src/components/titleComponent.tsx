@@ -1,11 +1,16 @@
 import React from 'react';
 import titleImg from '../assets/scrumMaster.png';
 
-const Title = () => {
-    return(
-        <span className="title"><img src={titleImg} className="titleImg" alt="scrum Master"></img></span>
-    )
+export class TitleComponent extends React.PureComponent {
 
+    render() {
+            return (
+                <div>
+                    <img
+                        alt="scrum Master"
+                        className="titleImg"
+                        src={titleImg} />
+                </div>
+            )
+    }
 }
-
-export default Title;

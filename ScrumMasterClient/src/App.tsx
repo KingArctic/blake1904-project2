@@ -8,13 +8,21 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
-import { UserPageComponent } from './components/userPage/user.page.component';
+
+import { TitleComponent } from './components/titleComponent';
+import { UserPageComponent } from './components/user-page/user.page.component';
+
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <NavComponent />
+      <div >
+      <NavComponent />
+      </div>
+      <br/>
+        <div id="main-content-container" style={{ paddingLeft: '10px' }}>
+        <TitleComponent/>
         <div id="main-content-container">
           <Switch>
             <Route path="/home" component={HomeComponent} />
@@ -22,7 +30,8 @@ const App: React.FC = () => {
             <Route path="/user-page" component={UserPageComponent} />
             <Route component={SISelectorComponent} />
           </Switch>
-        </div>
+          </div>
+          </div>
       </BrowserRouter>
     </Provider>
   );
