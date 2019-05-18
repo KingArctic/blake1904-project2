@@ -40,7 +40,10 @@ $screen-xl-min: 1200px;
       @content;
   }
 }
-
+// custom Fonts
+@import url('https://fonts.googleapis.com/css?family=Macondo+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Macondo+Swash+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Macondo+Swash+Caps|Quantico&display=swap');
 
 .App {
   text-align: center;
@@ -136,25 +139,23 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+
+/*****************************
+   CURRENT SCRUM MASTER USER
+*****************************/
 .user {
   
-  font-family: 'VT323', monospace;
+  font-family: 'Quantico', sans-serif;
+  size: 40px;
   width:100%; 
   display:block;
 }
 
-.center {
-  
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-}
-
-.homeContainer {
-  display: flex;
-}
 
 .genericAvatar {
+  display: block;
+  
+  
   width: 200px;
   height: 200px;
 }
@@ -166,15 +167,64 @@ nav {
   border-radius: 50%;
 }
 
-.name {
-  display: block;
+.box {
+  display: inline-block;
   border: 2px inset black;
   width: 200px;
   text-align: center;
   padding: 0.5em;
-  font-family: 'VT323', monospace;
+  font-family: 'Quantico', sans-serif;
   
 }
+
+.name .points {
+  display: inline-block;
+  padding: 0.5em;
+  font-family: 'Quantico', sans-serif;
+  
+}
+/*****************************
+      GENERIC STYLES
+*****************************/
+.rowsCenter {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+.center {
+  
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.column {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*****************************
+        HOME
+*****************************/
+.homeContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleImg {
+  width: 100%;
+  height:100px;
+  
+}
+
+
+/*****************************
+        PROGRESS BAR
+*****************************/
 .progress {
   
   background-color:royalblue;
@@ -201,12 +251,32 @@ nav {
   height:60px;
   padding-right:10px;
 }
-// ////////  QUOTE STYLISH /////////////////
-
-.quoteContainer {
-
+/*****************************
+        QUOTE
+*****************************/
+#quote-card-content{
+  width:50%;
+}
+.quote {
+  
+  font-family: 'Quantico', sans-serif;
 }
 
 .author {
   
+font-family: 'Quantico', sans-serif;
+}
+
+/*****************************
+        DESCRIPTION
+*****************************/
+.description {
+  
+  font-size: 1.2em;
+  font-family: 'Macondo Swash Caps', cursive;
+}
+
+.smallIcons{
+  width: 30px;
+  height: 30px;
 }

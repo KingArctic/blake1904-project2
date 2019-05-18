@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, CardBody, Row, CardTitle } from 'reactstrap';
 
 interface iQuote {
     quote: string;
@@ -28,16 +29,14 @@ export class QuoteComponent extends React.Component<any,iQuote> {
 
     render() {
         return (
-            <div className="something" >
-            <div className="quoteContainer">
-                <h3 className="quote">{this.state.quote}</h3>
-                <p className="author">{this.state.author}</p>
-            </div>
-            <div className="Description">
-            <h2>Do you have what it takes to become the next Scrum Master?</h2>
-            <p>Follow the path of the code maker, increase your knowledge, slay the dragon of inner ignorance, get the loot, become the next next Scrum Master. </p>
-            </div>
-            </div>
+     
+<Card id="quote-card-content">
+<CardBody className="justify-content-center text-center">    
+    <Row className="justify-content-center"><CardTitle><h5  className="quote">{this.state.quote}</h5></CardTitle></Row>
+    <Row className="justify-content-center"><CardTitle><h5 className="author">{this.state.author}</h5></CardTitle></Row>
+</CardBody>
+</Card>
+
         );
     } 
 }

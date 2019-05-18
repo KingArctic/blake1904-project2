@@ -9,14 +9,13 @@ export class UserCard extends React.Component<Iuser> {
     render() {
     
       return (
-        <div className="center">
+        <div className="column">
         <img src={avatar}
             className="genericAvatar"
             alt="..." />
-        <div className="container">
-        <span className="name">Username: {this.props.user.username}</span>
-        <span className="user">UnknowN</span></div>
-        
+        <span className="name">Name: </span><span className="box"> {this.props.user.username}</span>
+        <span className="points">Points: </span><span className="box">00000</span>
+    
         </div>
 
 
