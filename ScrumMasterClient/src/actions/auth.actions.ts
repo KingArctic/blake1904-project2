@@ -23,7 +23,6 @@ export const login = (username: string, password: string, history: any) => async
         type: authTypes.INVALID_CREDENTIALS
       })
     } else if (resp.status === 200) {
-      // redirect to spaceships page
       const user = await resp.json();
       dispatch({
         payload: {
@@ -31,7 +30,7 @@ export const login = (username: string, password: string, history: any) => async
         },
         type: authTypes.LOGGED_IN
       })
-      history.push('/spaceships');
+      //history.push('/');
     } else {
       dispatch({
         type: authTypes.FAILED_TO_LOGIN

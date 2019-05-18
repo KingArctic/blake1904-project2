@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../titleComponent';
+
 import UserCard from '../userCard';
 import { User } from '../../model/user';
 import ProgressBarComponent from '../ProgressComponent';
@@ -13,8 +13,6 @@ export class HomeComponent extends React.Component {
   render() {
     return (
       <>
-      <Title />
-      <UserCard user={this.aUser}/>
       <div className="homeContainer">
       
       

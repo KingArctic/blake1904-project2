@@ -1,6 +1,7 @@
 import React from 'react';
 import { User } from '../../model/user';
 
+
 interface IUserIconProps {
     user: User;
 }
