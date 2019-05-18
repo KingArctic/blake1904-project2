@@ -16,7 +16,7 @@ interface IUPageProps extends RouteComponentProps {
 export class UserPageComponent extends React.Component<IUPageProps>{
 
     render() {
-        if(this.props.user.currentUser){
+        if(this.props.user.currentUser && this.props.user.currentUser){
         return (
             <div id="user-page"  >
                 <Container id="user-card-c">
