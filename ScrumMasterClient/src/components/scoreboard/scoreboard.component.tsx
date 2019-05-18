@@ -1,11 +1,11 @@
 import React from 'react';
-import { InventoryCardComponent } from './inventory-card.component';
+import { ScoreboardCardComponent } from './scoreboard-card.component';
 
-interface IInventoryState {
+interface IScoreboardState {
     numlist: number[],
 }
 
-export class InventoryComponent extends React.Component<any, IInventoryState> {
+export class ScoreboardComponent extends React.Component<any, IScoreboardState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -13,13 +13,11 @@ export class InventoryComponent extends React.Component<any, IInventoryState> {
         };
     }
 
-
-
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    {this.state.numlist.map(number => (<InventoryCardComponent rarity={Math.floor(Math.random() * 6) + 1}/>))}
+                    {this.state.numlist.map(number => (<ScoreboardCardComponent />))}
                 </div>
             </div>
         )
