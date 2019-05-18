@@ -68,6 +68,7 @@ $screen-xl-min: 1200px;
 
 #root {
   background-color: #1f1f1f;
+  color:  #FFE82A
 }
 
 .App-link {
@@ -130,6 +131,7 @@ $screen-xl-min: 1200px;
 .box {
   display: inline-block;
 }
+//***
 
 @keyframes example {
   0%   {background-color: red;}  
@@ -140,13 +142,7 @@ $screen-xl-min: 1200px;
   100% {background-color: purple;};
 }
 
-button {
-  position: relative;
-  animation-name: example;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
+
 #user-page {
   display: flex;
   flex-direction: row;
@@ -198,12 +194,12 @@ button {
 *****************************/
 
 // row arrange left to right
-.rowsCenter {
+.home_center {
   display:flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  justify-content: space-between;
+  flex-direction: column;
+  
+  
 }
 .center {
   
@@ -229,6 +225,9 @@ button {
         HOME
 *****************************/
 .homeContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2em;
   width: 100%;
   height: 100%;
   
@@ -291,10 +290,15 @@ font-family: 'Quantico', sans-serif;
 /*****************************
         DESCRIPTION
 *****************************/
-.description {
+#description {
   
   font-size: 1.2em;
   font-family: 'Macondo Swash Caps', cursive;
+  background-color: #2F2F2F;
+  border-width: 5px;
+  border-color: #AF00FF;
+  margin: 2em;
+  text-align: center;
 }
 
 .smallIcons{
@@ -327,4 +331,10 @@ font-family: 'Quantico', sans-serif;
 #title_bar {
   position: fixed;
   
+}
+//dd
+.sign_in{
+  display: flex;
+
+
 }
