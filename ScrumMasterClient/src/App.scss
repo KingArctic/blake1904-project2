@@ -186,10 +186,14 @@ nav {
 /*****************************
       GENERIC STYLES
 *****************************/
+
+// row arrange left to right
 .rowsCenter {
   display:flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+  justify-content: space-between;
 }
 .center {
   
@@ -201,10 +205,14 @@ nav {
   width:100%;
   height: 30px;
 }
+// gets items align up to down
 .column {
   display:flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  
+  
 }
 
 /*****************************
@@ -213,9 +221,7 @@ nav {
 .homeContainer {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
 }
 
 .titleImg {
@@ -230,13 +236,11 @@ nav {
 *****************************/
 .progress {
   
-  background-color:royalblue;
+  background-color:rgb(45, 46, 48);
   transition: background 100ms 100ms ease-in;
 }
 .proContainer {
-  display: flex;
-
-  width:1000px;
+  
   height:60px;
 }
 .bar {
@@ -259,6 +263,9 @@ nav {
 *****************************/
 #quote-card-content{
   width:50%;
+  background-color: #282c34;
+  border-color: #510d63;
+  color: #ffffff;
 }
 .quote {
   

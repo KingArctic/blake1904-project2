@@ -12,7 +12,7 @@ class ProgressBarComponent extends React.PureComponent <iBarProps> {
         let progress = this.props.point;
         let topic = "java";
         return (
-            <div className="proContainer">
+            <div className="columns">
                 <img src={java} className="topicImg"></img>
                 <Progress animated={true} color='success' value={progress} style={{color: 'black', height: '60px', width: '400px', transitionDuration: 'background 100ms 100ms ease-in'}}>
                 <h3>{progress}%</h3></Progress>
