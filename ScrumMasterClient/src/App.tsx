@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import { store } from './Store';
 import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
-
 import { TitleComponent } from './components/titleComponent';
 import { UserPageComponent } from './components/user-page/user.page.component';
 
@@ -21,14 +20,16 @@ const App: React.FC = () => {
       <NavComponent />
       </div>
       <br/>
-        <div id="main-content-container" style={{ paddingLeft: '10px' }}>
+        <div id="main-content-container">
+    
         <TitleComponent/>
         <div id="main-content-container">
           <Switch>
             <Route path="/home" component={HomeComponent} />
             <Route path="/sign-in" component={SignInComponent} />
             <Route path="/user-page" component={UserPageComponent} />
-            <Route component={SISelectorComponent} />
+            <Route path="/shop" component={SISelectorComponent} />
+            <Route component={HomeComponent} />
           </Switch>
           </div>
           </div>

@@ -24,7 +24,7 @@ export class NavComponent extends React.Component<any, INavBarState> {
           this.setState({ expanded: false });
         }}
       >
-        <SideNav style={{ marginTop: '159px' }}
+        <SideNav
           expanded={this.state.expanded}
           onToggle={(expanded) => {
             this.setState({ expanded });
@@ -63,12 +63,12 @@ export class NavComponent extends React.Component<any, INavBarState> {
               </NavText>
             </NavItem>
 
-            <NavItem eventKey="codingMaster">
+            <NavItem eventKey="shop">
               <NavIcon>
-                <Link to="/codeMaster"><img alt="Coding Master" src="https://img.icons8.com/nolan/45/000000/e-learning.png"></img></Link>
+                <Link to="/shop"><img alt="Coding Master" src="https://img.icons8.com/nolan/45/000000/small-business.png"></img></Link>
               </NavIcon>
               <NavText>
-                <Link to="/codeMaster"><h5 className="nav_text titles">Code Master</h5></Link>
+                <Link to="/shop"><h5 className="nav_text titles">Shop</h5></Link>
               </NavText>
             </NavItem>
 

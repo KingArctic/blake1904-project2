@@ -66,6 +66,10 @@ $screen-xl-min: 1200px;
   color: white;
 }
 
+#root {
+  background-color: #1f1f1f;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -307,6 +311,8 @@ font-family: 'Quantico', sans-serif;
 #sideNav {
   color: #FF00FF;
   background-color: #2F2F2F;
+  position: fixed;
+
 }
 
 .nav_text {
@@ -318,6 +324,7 @@ font-family: 'Quantico', sans-serif;
   padding: 20px;
 }
 
-.sidenav---sidenav---_2tBP {
-  margin-top: 100;
+#title_bar {
+  position: fixed;
+  
 }
