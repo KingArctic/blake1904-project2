@@ -10,10 +10,11 @@ import SignInComponent from '../sign-in/SignInComponent';
 import Space from '../SpaceComponent';
 import CurrentItems from './CurrentItems';
 import NewUserComponent from './RegisterForm';
+import { TitleComponent } from '../titleComponent';
 
 export class HomeComponent extends React.Component {
   
-  aUser = new User(0,"UNKNOWN","none","UNKNOWN");
+  aUser = new User(0,0,"UNKNOWN","none","UNKNOWN");
   point = 80;
   topic = 1;
   
@@ -22,7 +23,7 @@ export class HomeComponent extends React.Component {
       
       <div className="homeContainer">
       <div className="column">
-      <Title />
+      <TitleComponent />
       <div className="rowsCenter">
       
       <div className="column">
