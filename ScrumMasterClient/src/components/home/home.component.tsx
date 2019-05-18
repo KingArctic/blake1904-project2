@@ -7,10 +7,12 @@ import QuoteComponent from '../QuoteComponent';
 import { Card, CardBody, CardTitle, Row, Container } from 'reactstrap';
 import Description from './DescriptionComponent';
 import SignInComponent from '../sign-in/SignInComponent';
+import Space from '../SpaceComponent';
 
 export class HomeComponent extends React.Component {
   
   aUser = new User(0,"UNKNOWN","none","UNKNOWN");
+  point = 0;
   
   render() {
     return (
@@ -19,16 +21,18 @@ export class HomeComponent extends React.Component {
       <div className="columns">
       <Title />
       <div className="rowsCenter">
-      
+      <ProgressBarComponent point={this.point}/>
       <UserCard user={this.aUser}/>
+      
       <SignInComponent />
       </div>
       
       <div className="columns">
+      <Space />
       <Description />
-      
+      <Space />
       <QuoteComponent />
-      <ProgressBarComponent />
+      
         </div>
         </div>
       </div> // container column

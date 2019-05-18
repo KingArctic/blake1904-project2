@@ -2,11 +2,14 @@ import React from 'react';
 import java from '../assets/java.png';
 import { Progress } from 'reactstrap';
 
-class ProgressBarComponent extends React.PureComponent {
+interface iBarProps {
+    point: number
+}
+class ProgressBarComponent extends React.PureComponent <iBarProps> {
 
 
     render() {
-        let progress = 50;
+        let progress = this.props.point;
         let topic = "java";
         return (
             <div className="proContainer">
