@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project2.Dto.CredentialDto;
+import com.project2.Dto.NewUserDto;
 import com.project2.model.User;
 import com.project2.services.UserService;
 
@@ -35,8 +36,8 @@ public class UserController {
 	}
 	
 	@PostMapping()
-	public User save(@RequestBody User u) {
-		return userService.save(u);
+	public ResponseEntity<User> save(@RequestBody NewUserDto u, HttpServletRequest req) {
+		return userService.save(u, req);
 	}
 	
 	@PostMapping("/login")

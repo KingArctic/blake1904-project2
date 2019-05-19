@@ -13,7 +13,7 @@ export class Question {
         wrongAnswerA: string, wrongAnswerB: string, wrongAnswerC: string, 
         questionTypeId: number, difficulty: number) {
         this.questionId = questionId;
-        this.question = name;
+        this.question = question;
         this.answer = answer;
         this.wrongAnswerA = wrongAnswerA;
         this.wrongAnswerB = wrongAnswerB;

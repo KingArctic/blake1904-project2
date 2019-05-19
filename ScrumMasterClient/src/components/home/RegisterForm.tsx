@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { User } from '../../model/user';
+import { NewUser } from '../../model/NewUser';
 
 interface IUserUpdateState {
   errorMessage: string;
-  user: User;
+  user: NewUser;
 }
 
 export class NewUserComponent extends React.Component<any, IUserUpdateState> {
@@ -12,7 +13,7 @@ export class NewUserComponent extends React.Component<any, IUserUpdateState> {
     super(props);
     this.state = {
       errorMessage: '',
-      user: new User(undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, [], undefined)
+      user: new NewUser(undefined, undefined, undefined, undefined)
     };
   }
 
@@ -21,40 +22,54 @@ export class NewUserComponent extends React.Component<any, IUserUpdateState> {
     console.log('attempting to login');
 
     console.log(this.state.user);
+    const name = this.state.user.name;
+    const username = this.state.user.username;
+    const email = this.state.user.email;
+    const password = this.state.user.password;
+
+    let newuser = { 
+      name: name,
+      username: username,
+      email: email,
+      password: password
+    }
+
+    let toSend = await JSON.stringify(newuser)
 
     try {
-      const resp = await fetch('http://localhost:8081/users',  {
+      const resp = await fetch('http://localhost:8081/user', {
         method: 'POST',
         credentials: 'include',
-        body: JSON.stringify(this.state.user),
+        body: toSend,
         headers: {
           'content-type': 'application/json'
         }
 
       })
       const data = await resp.json();
-        console.log("is this the user?");
-        console.log(data);
-        this.setState({
-            user: data
-        });
+      console.log("is this the user?");
+      console.log(data);
+      this.setState({
+        user: data
+      });
 
       console.log("what is this?");
 
-      if (resp.status === 401) {
-        this.setState({
-          errorMessage: 'Invalid Credentials'
-        });
-      } else if (resp.status === 200) {
+      // if (resp.status === 401) {
+      //   this.setState({
+      //     errorMessage: 'Invalid Credentials'
+      //   });
+      // } else if (resp.status === 200) {
 
-      // {this.renderProfile()}
-       // updateCurrentUser(data);
-          this.props.history.push('/user-page');
-      } else {
-        this.setState({
-          errorMessage: 'Cannot Login At This Time'
-        });
-      }
+      //   // {this.renderProfile()}
+      //   // updateCurrentUser(data);
+        
+      // } else {
+      //   this.setState({
+      //     errorMessage: 'Cannot Login At This Time'
+      //   });
+      // }
+      this.props.history.push('/user-page');
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +96,7 @@ export class NewUserComponent extends React.Component<any, IUserUpdateState> {
     await this.setState({
       user: {
         ...this.state.user,
-            name: event.target.value
+        name: event.target.value
       }
     });
   }
@@ -104,22 +119,22 @@ export class NewUserComponent extends React.Component<any, IUserUpdateState> {
           <label htmlFor="inputUsername" className="sr-only">Username</label>
           <input type="text" id="inputUsername" name="username"
             className="form-control" placeholder="Username"
-            required value={user.username} onChange={this.updateUsername} />
+            value={user.username} onChange={this.updateUsername} />
 
           <label htmlFor="inputFirstName" className="sr-only">First Name</label>
           <input type="text" id="inputFirstName" name="password"
             className="form-control" placeholder="Name"
-            required value={user.name} onChange={this.updateName} />
+            value={user.name} onChange={this.updateName} />
 
           <label htmlFor="inputEmail" className="sr-only">Email</label>
           <input type="text" id="inputEmail" name="password"
             className="form-control" placeholder="Email"
-            required value={user.email} onChange={this.updateEmail} />
+            value={user.email} onChange={this.updateEmail} />
 
           <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input type="password" id="inputPassword" name="password"
             className="form-control" placeholder="Password"
-            required value={user.password} onChange={this.updatePassword} />
+            value={user.password} onChange={this.updatePassword} />
 
           <button className="btn btn-lg btn-primary btn-block" type="submit">Add User</button>
           <p id="login-error">{errorMessage}</p>

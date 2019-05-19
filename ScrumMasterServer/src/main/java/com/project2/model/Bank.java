@@ -30,6 +30,12 @@ public class Bank {
 	}
 
 
+	public Bank(int amount) {
+		super();
+		this.amount = amount;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Bank [accountId=" + accountId + ", amount=" + amount + "]";
@@ -61,13 +67,6 @@ public class Bank {
 			return false;
 		return true;
 	}
-
-
-	public Bank(int amount) {
-		super();
-		this.amount = amount;
-	}
-
 
 	public int getAccountId() {
 		return accountId;

@@ -1,5 +1,6 @@
 package com.project2.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -100,6 +101,27 @@ public class User {
 		this.reactQuestions = reactQuestions;
 		this.nodeQuestions = nodeQuestions;
 	}
+	
+
+	public User(String name, String email, String username, String password, Bank account, Overall topicLevels) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.level = 1;
+		this.avatar = 0;
+		this.account = account;
+		this.topicLevels = topicLevels;
+		this.inventory = new ArrayList<ShopItem>();
+		this.javaQuestions = new ArrayList<Question>();
+		this.javaScriptQuestions = new ArrayList<Question>();
+		this.sqlQuestions = new ArrayList<Question>();
+		this.hibernateQuestions = new ArrayList<Question>();
+		this.springQuestions = new ArrayList<Question>();
+		this.reactQuestions = new ArrayList<Question>();
+		this.nodeQuestions = new ArrayList<Question>();
+	}
 
 	@Override
 	public String toString() {
@@ -108,7 +130,7 @@ public class User {
 				+ ", inventory=" + inventory + ", topicLevels=" + topicLevels + ", javaQuestions=" + javaQuestions + ", javaScriptQuestions="
 				+ javaScriptQuestions + ", sqlQuestions=" + sqlQuestions + ", hibernateQuestions=" + hibernateQuestions
 				+ ", springQuestions=" + springQuestions + ", reactQuestions=" + reactQuestions + ", nodeQuestions="
-				+ nodeQuestions + "]"
+				+ nodeQuestions + "]";
 	}
 
 	@Override
@@ -351,18 +373,11 @@ public class User {
 		this.nodeQuestions = nodeQuestions;
 	}
 
-
-
-
 	public Overall getTopicLevels() {
 		return topicLevels;
 	}
-
-
-
+	
 	public void setTopicLevels(Overall topicLevels) {
 		this.topicLevels = topicLevels;
 	}
-	
-	
 }
