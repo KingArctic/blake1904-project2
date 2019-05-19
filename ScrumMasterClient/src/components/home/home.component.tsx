@@ -4,19 +4,22 @@ import UserCard from '../userCard';
 import { User } from '../../model/user';
 import QuoteComponent from '../QuoteComponent';
 import Description from './DescriptionComponent';
-import SignInComponent from '../sign-in/SignInComponent';
+
 import NewUserComponent from './RegisterForm';
 import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
+import SignInComponent  from '../sign-in/sign-in.component';
 
 export class HomeComponent extends React.Component {
 
-  aUser = new User(0, 0, "UNKNOWN", "none", "UNKNOWN");
+  aUser = new User(undefined,undefined,"name",undefined,undefined,undefined,undefined, undefined, []);
   point = 80;
   topic = 1;
 
   render() {
     return (
-
+      <div>
+      <ScrollingScoreboardComponent/>
+      
       <div className="homeContainer">
 
 
@@ -32,8 +35,7 @@ export class HomeComponent extends React.Component {
             <NewUserComponent />
           </div>
 
-        <div>
-        <ScrollingScoreboardComponent/>
+       
         </div>
         </div>
 

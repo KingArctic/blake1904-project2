@@ -1,9 +1,9 @@
 import React from 'react';
 import { ShopCardComponent } from './shop-card.component';
-import { Item } from '../../model/item';
+import { ShopItem } from '../../model/item';
 
 interface IShopState {
-    itemlist: Item[],
+    itemlist: ShopItem[],
 }
 
 export class ShopComponent extends React.Component<any, IShopState> {

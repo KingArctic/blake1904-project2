@@ -22,7 +22,7 @@ interface IUserUpdateState {
         email: '',
         password: '',
         errorMessage: '',
-        user: new User()
+        user: new User (undefined,undefined,undefined,undefined,undefined,undefined,undefined, undefined, [])
       };
     }
   

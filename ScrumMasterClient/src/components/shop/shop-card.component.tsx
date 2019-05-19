@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
-import { Item } from '../../model/item';
+import { ShopItem } from '../../model/item';
+
 
 interface IItemProp {
-    item: Item;
+    item: ShopItem;
 }
 
 export class ShopCardComponent extends React.Component<IItemProp> {

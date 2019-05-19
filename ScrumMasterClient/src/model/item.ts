@@ -1,7 +1,7 @@
 import { Rarity } from "./rarity";
 import { ItemType } from "./itemType";
 
-export class Item {
+export class ShopItem {
     itemId: number;
     rarity: Rarity;
     itemType: ItemType;
