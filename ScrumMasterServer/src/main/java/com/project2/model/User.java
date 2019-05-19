@@ -31,6 +31,8 @@ public class User {
 	private int avatar;
 	@ManyToMany
 	private List<ShopItem> inventory;
+	@OneToOne
+	private Overall topicLevels;
 	
 	public User() {
 		super();
@@ -38,7 +40,7 @@ public class User {
 	}
 
 	public User(int userId, String name, String email, String username, String password, int level, Bank account,
-			int avatar, List<ShopItem> inventory) {
+			int avatar, List<ShopItem> inventory, Overall topicLevels) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -49,10 +51,11 @@ public class User {
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
+		this.topicLevels = topicLevels;
 	}
 
 	public User(String name, String email, String username, String password, int level, Bank account, int avatar,
-			List<ShopItem> inventory) {
+			List<ShopItem> inventory, Overall topicLevels) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -62,13 +65,14 @@ public class User {
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
+		this.topicLevels = topicLevels;
 	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", username=" + username
 				+ ", password=" + password + ", level=" + level + ", account=" + account + ", avatar=" + avatar
-				+ ", inventory=" + inventory + "]";
+				+ ", inventory=" + inventory + ", topicLevels=" + topicLevels + "]";
 	}
 
 	@Override
@@ -82,6 +86,7 @@ public class User {
 		result = prime * result + level;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((topicLevels == null) ? 0 : topicLevels.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
@@ -124,6 +129,11 @@ public class User {
 			if (other.password != null)
 				return false;
 		} else if (!password.equals(other.password))
+			return false;
+		if (topicLevels == null) {
+			if (other.topicLevels != null)
+				return false;
+		} else if (!topicLevels.equals(other.topicLevels))
 			return false;
 		if (userId != other.userId)
 			return false;
@@ -206,5 +216,18 @@ public class User {
 	public void setInventory(List<ShopItem> inventory) {
 		this.inventory = inventory;
 	}
+
+
+
+	public Overall getTopicLevels() {
+		return topicLevels;
+	}
+
+
+
+	public void setTopicLevels(Overall topicLevels) {
+		this.topicLevels = topicLevels;
+	}
+	
 	
 }
