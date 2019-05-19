@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project2.Dto.CredentialDto;
 import com.project2.Dto.NewUserDto;
+import com.project2.model.ShopItem;
 import com.project2.model.User;
 import com.project2.services.UserService;
 
@@ -30,9 +31,15 @@ public class UserController {
 	public List<User> findAll(){
 		return userService.findAll();
 	}
+	
 	@GetMapping("{id}")
 	public User findById(@PathVariable int id) {
 		return userService.findById(id);
+	}
+	
+	@GetMapping("{id}/invetory")
+	public List<ShopItem> getInventoryByID(@PathVariable int id) {
+		return userService.findById(id).getInventory();
 	}
 	
 	@PostMapping()

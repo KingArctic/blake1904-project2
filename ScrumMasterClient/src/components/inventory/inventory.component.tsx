@@ -1,25 +1,32 @@
 import React from 'react';
 import { InventoryCardComponent } from './inventory-card.component';
+import { ShopItem } from '../../model/item';
 
 interface IInventoryState {
-    numlist: number[],
+    itemlist: ShopItem[],
 }
 
 export class InventoryComponent extends React.Component<any, IInventoryState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            numlist: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            itemlist: [],
         };
     }
 
-
+    async componentDidMount() {
+        const resp = await fetch('http://localhost:8081/shopitem', { method: 'GET', credentials: 'include' })
+        const body = await resp.json();
+        await this.setState({
+            itemlist: body
+        });
+    }
 
     render() {
         return (
             <div className="container">
                 <div className="row">
-                    {this.state.numlist.map(number => (<InventoryCardComponent rarity={Math.floor(Math.random() * 6) + 1}/>))}
+                    {this.state.itemlist.map(item => (<InventoryCardComponent item={item}/>))}
                 </div>
             </div>
         )

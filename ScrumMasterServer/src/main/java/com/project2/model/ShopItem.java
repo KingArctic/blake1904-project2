@@ -22,6 +22,7 @@ public class ShopItem {
 	private String effect;
 	private String itemName;
 	private String itemDescription;
+	private String url;
 	
 	
 	public ShopItem() {
@@ -29,9 +30,8 @@ public class ShopItem {
 		// TODO Auto-generated constructor stub
 	}
 
-
 	public ShopItem(int itemId, RarityItems rarity, ItemType itemType, String effect, String itemName,
-			String itemDescription) {
+			String itemDescription, String url) {
 		super();
 		this.itemId = itemId;
 		this.rarity = rarity;
@@ -39,23 +39,26 @@ public class ShopItem {
 		this.effect = effect;
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
+		this.url = url;
 	}
 
 
-	public ShopItem(RarityItems rarity, ItemType itemType, String effect, String itemName, String itemDescription) {
+	public ShopItem(RarityItems rarity, ItemType itemType, String effect, String itemName, String itemDescription,
+			String url) {
 		super();
 		this.rarity = rarity;
 		this.itemType = itemType;
 		this.effect = effect;
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
+		this.url = url;
 	}
 
 
 	@Override
 	public String toString() {
 		return "ShopItem [itemId=" + itemId + ", rarity=" + rarity + ", itemType=" + itemType + ", effect=" + effect
-				+ ", itemName=" + itemName + ", itemDescription=" + itemDescription + "]";
+				+ ", itemName=" + itemName + ", itemDescription=" + itemDescription + ", url=" + url + "]";
 	}
 
 
@@ -69,6 +72,7 @@ public class ShopItem {
 		result = prime * result + ((itemName == null) ? 0 : itemName.hashCode());
 		result = prime * result + ((itemType == null) ? 0 : itemType.hashCode());
 		result = prime * result + ((rarity == null) ? 0 : rarity.hashCode());
+		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
 	}
 
@@ -108,6 +112,11 @@ public class ShopItem {
 			if (other.rarity != null)
 				return false;
 		} else if (!rarity.equals(other.rarity))
+			return false;
+		if (url == null) {
+			if (other.url != null)
+				return false;
+		} else if (!url.equals(other.url))
 			return false;
 		return true;
 	}
@@ -172,4 +181,14 @@ public class ShopItem {
 		this.itemDescription = itemDescription;
 	}
 
+
+	public String getUrl() {
+		return url;
+	}
+
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 }

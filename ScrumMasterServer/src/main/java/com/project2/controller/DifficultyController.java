@@ -32,9 +32,6 @@ public class DifficultyController {
 
 	@PostMapping()
 	public Difficulty save(@RequestBody Difficulty d) {
-		System.out.println(d);
-		d.setDifficultyId(1);
-		System.out.println(d);
 		return difficultyService.save(d);
 	}
 }

@@ -13,7 +13,7 @@ public class ShopItemService {
 	private ShopItemRepo shopRepo;
 	
 	public List<ShopItem> findAll(){
-		return shopRepo.findAll();
+		return shopRepo.findAllByRarityAsc();
 	}
 	
 	public ShopItem findById(int id) {
