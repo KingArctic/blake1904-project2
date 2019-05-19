@@ -2,14 +2,11 @@ import React from 'react';
 
 import UserCard from '../userCard';
 import { User } from '../../model/user';
-import ProgressBarComponent from '../ProgressComponent';
 import QuoteComponent from '../QuoteComponent';
-import { Card, CardBody, CardTitle, Row, Container } from 'reactstrap';
 import Description from './DescriptionComponent';
 import SignInComponent from '../sign-in/SignInComponent';
-import CurrentItems from './CurrentItems';
 import NewUserComponent from './RegisterForm';
-import { TitleComponent } from '../titleComponent';
+import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
 
 export class HomeComponent extends React.Component {
 
@@ -35,8 +32,9 @@ export class HomeComponent extends React.Component {
             <NewUserComponent />
           </div>
 
-
-        
+        <div>
+        <ScrollingScoreboardComponent/>
+        </div>
         </div>
 
     );

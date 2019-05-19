@@ -112,7 +112,15 @@ $screen-xl-min: 1200px;
   display:block;
 }
 
-
+#scrum_master_card{
+  background-color: #2F2F2F;
+  border-width: 5px;
+  animation-name: rainbow;
+  animation-duration: .75s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2), 0px 0px 60px 0px rgba(0, 0, 0, 0.19);
+}
 .genericAvatar {
   display: block;
   
@@ -406,7 +414,7 @@ font-family: 'Quantico', sans-serif;
         DESCRIPTION
 *****************************/
 #description {
-  
+  width: 50%;
   font-size: 1.2em;
   font-family: 'Macondo Swash Caps', cursive;
   background-color: #2F2F2F;
