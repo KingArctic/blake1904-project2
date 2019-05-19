@@ -12,8 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Difficulty {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int difficultyId;
+	
 	private int rewardPoints;
 	
 	

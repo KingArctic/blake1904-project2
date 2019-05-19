@@ -27,6 +27,7 @@ public class User {
 	private String username;
 	private String password;
 	private int level;
+	private int points;
 	@OneToOne
 	private Bank account;
 	private int avatar;
@@ -55,7 +56,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int userId, String name, String email, String username, String password, int level, Bank account,
+	public User(int userId, String name, String email, String username, String password, int level, int points, Bank account,
 			int avatar, List<ShopItem> inventory, Overall topicLevels, List<Question> javaQuestions, List<Question> javaScriptQuestions,
 			List<Question> sqlQuestions, List<Question> hibernateQuestions, List<Question> springQuestions,
 			List<Question> reactQuestions, List<Question> nodeQuestions) {
@@ -66,6 +67,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.level = level;
+		this.points = points;
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
@@ -79,7 +81,7 @@ public class User {
 		this.nodeQuestions = nodeQuestions;
 	}
 
-	public User(String name, String email, String username, String password, int level, Bank account, int avatar,
+	public User(String name, String email, String username, String password, int level, int points, Bank account, int avatar,
 			List<ShopItem> inventory, Overall topicLevels, List<Question> javaQuestions, List<Question> javaScriptQuestions,
 			List<Question> sqlQuestions, List<Question> hibernateQuestions, List<Question> springQuestions,
 			List<Question> reactQuestions, List<Question> nodeQuestions) {
@@ -89,6 +91,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.level = level;
+		this.points = points;
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
@@ -110,6 +113,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.level = 1;
+		this.points = 0;
 		this.avatar = 0;
 		this.account = account;
 		this.topicLevels = topicLevels;
@@ -126,7 +130,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", username=" + username
-				+ ", password=" + password + ", level=" + level + ", account=" + account + ", avatar=" + avatar
+				+ ", password=" + password + ", level=" + level + ", account=" + account + ", points=" + points + ", avatar=" + avatar
 				+ ", inventory=" + inventory + ", topicLevels=" + topicLevels + ", javaQuestions=" + javaQuestions + ", javaScriptQuestions="
 				+ javaScriptQuestions + ", sqlQuestions=" + sqlQuestions + ", hibernateQuestions=" + hibernateQuestions
 				+ ", springQuestions=" + springQuestions + ", reactQuestions=" + reactQuestions + ", nodeQuestions="
@@ -145,6 +149,7 @@ public class User {
 		result = prime * result + ((javaQuestions == null) ? 0 : javaQuestions.hashCode());
 		result = prime * result + ((javaScriptQuestions == null) ? 0 : javaScriptQuestions.hashCode());
 		result = prime * result + level;
+		result = prime * result + points;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((nodeQuestions == null) ? 0 : nodeQuestions.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -199,6 +204,8 @@ public class User {
 		} else if (!javaScriptQuestions.equals(other.javaScriptQuestions))
 			return false;
 		if (level != other.level)
+			return false;
+		if (points != other.points)
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -379,5 +386,13 @@ public class User {
 	
 	public void setTopicLevels(Overall topicLevels) {
 		this.topicLevels = topicLevels;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
 	}
 }
