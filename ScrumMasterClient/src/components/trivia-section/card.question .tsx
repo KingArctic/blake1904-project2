@@ -3,6 +3,7 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { User } from '../../model/user';
 import { Question } from '../../model/question';
 
+
 interface IQuestionProps {
     question: Question;
     user: User;
