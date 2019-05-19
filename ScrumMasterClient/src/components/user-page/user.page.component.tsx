@@ -16,7 +16,9 @@ interface IUPageProps extends RouteComponentProps {
 export class UserPageComponent extends React.Component<IUPageProps>{
 
     render() {
+        console.log(this.props.user);
         if(this.props.user && this.props.user.currentUser){
+            console.log('inside'+ this.props.user);
         return (
             <div id="user-page"  >
                 <Container id="user-card-c">
@@ -24,7 +26,7 @@ export class UserPageComponent extends React.Component<IUPageProps>{
                         <CardBody className="justify-content-center text-center">
                             <Row className="justify-content-md-center ">
                                 <UserIconComponent user={this.props.user.currentUser} /></Row>
-                            <Row className="justify-content-center"><CardTitle><h5 className="titles">USERNAME</h5></CardTitle></Row>
+                            <Row className="justify-content-center"><CardTitle><h5 className="titles">{this.props.user.currentUser.username}</h5></CardTitle></Row>
                             <Row className="justify-content-center"> <CardTitle><h5 className="title">Rank</h5></CardTitle></Row>
                             <Row className="justify-content-center"> <CardTitle>{"<"}Level{">"}</CardTitle></Row>
 

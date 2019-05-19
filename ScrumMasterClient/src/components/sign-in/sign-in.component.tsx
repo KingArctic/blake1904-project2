@@ -2,7 +2,7 @@ import React from 'react';
 import { IAuthState, IState } from '../../reducers';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth.actions';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 interface ISignInState {
   username: string;
@@ -74,4 +74,4 @@ const mapDispatchToProps = {
   login: login
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInComponent);
+export default withRouter (connect(mapStateToProps, mapDispatchToProps)(SignInComponent));

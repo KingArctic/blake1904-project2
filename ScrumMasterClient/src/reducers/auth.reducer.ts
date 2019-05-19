@@ -22,10 +22,10 @@ export const authReducer = (state = initialState, action) => {
     case authTypes.LOGGED_IN:
       return {
         ...state,
-        currentUser: action.payload.user
+        currentUser: action.payload.user,
       }
     default:
-
+      break;
   }
   return state;
 }

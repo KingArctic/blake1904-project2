@@ -2,39 +2,43 @@ import React from 'react';
 
 import UserCard from '../userCard';
 import { User } from '../../model/user';
-import ProgressBarComponent from '../ProgressComponent';
 import QuoteComponent from '../QuoteComponent';
-import { Card, CardBody, CardTitle, Row, Container } from 'reactstrap';
 import Description from './DescriptionComponent';
-import SignInComponent from '../sign-in/SignInComponent';
-import CurrentItems from './CurrentItems';
+
 import NewUserComponent from './RegisterForm';
-import { TitleComponent } from '../titleComponent';
 import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
+import SignInComponent  from '../sign-in/sign-in.component';
 
 export class HomeComponent extends React.Component {
 
-  aUser = new User(0, 0, "UNKNOWN", "none", "UNKNOWN");
+  aUser = new User(undefined,undefined,"name",undefined,undefined,undefined,undefined, undefined, []);
   point = 80;
   topic = 1;
 
   render() {
     return (
       <div>
-        <div className="homeContainer">
-          <div className="home_center">
+      <ScrollingScoreboardComponent/>
+      
+      <div className="homeContainer">
+
+
+            <div className="home_center">
             <UserCard user={this.aUser} />
             <Description />
+          
+          <QuoteComponent />
+            </div>
 
-            <QuoteComponent />
-          </div>
-          <div >
+            <div >
             <SignInComponent />
             <NewUserComponent />
           </div>
+
+       
         </div>
-        <ScrollingScoreboardComponent />
-      </div>
+        </div>
+
     );
   }
 }
