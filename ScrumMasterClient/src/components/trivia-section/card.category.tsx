@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, CardTitle, CardImg, CardText } from 'reactstrap';
 import { QuestionType } from '../../model/QuestionType';
 import java from '../../assets/java.png';
-import ProgressBarComponent from '../ProgressComponent';
+// import ProgressBarComponent from '../ProgressComponent';
 
 
 interface IQuestionTypeProps {
@@ -23,7 +23,7 @@ export class CategoryCardComponent extends React.Component<IQuestionTypeProps> {
                 <CardTitle><h5 className="titles">{this.props.category.category}</h5></CardTitle>
                 <div >
                 <CardText className="clevel">0</CardText>
-                <ProgressBarComponent />
+                {/*<ProgressBarComponent />*/}
                 </div>
             </CardBody>
         </Card>

@@ -1,5 +1,6 @@
 import { Bank } from "./Bank";
 import { ShopItem } from "./item";
+import { Overall } from "./Overall";
 
 export class User {
   userId: number;
@@ -10,10 +11,11 @@ export class User {
   level: number;
   email: string;
   account: Bank;
-  inventory: ShopItem[]
+  inventory: ShopItem[];
+  topicLevels: Overall;
 
 
-  constructor(userId = 0, avatar = 0, name = '', username = '', password = '', level = 0, email= '', account= new Bank(0,0), inventory: ShopItem[] ) {
+  constructor(userId = 0, avatar = 0, name = '', username = '', password = '', level = 0, email= '', account= new Bank(0,0), inventory: ShopItem[], topicLevels = new Overall(0,1,1,1,1,1,1,1) ) {
     this.userId = userId;
     this.avatar = avatar;
     this.name = name;
@@ -23,5 +25,6 @@ export class User {
     this.email = email;
     this.account = account;
     this.inventory = inventory
+    this.topicLevels = topicLevels;
   }
 }

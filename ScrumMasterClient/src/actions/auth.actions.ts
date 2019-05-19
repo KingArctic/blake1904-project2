@@ -1,9 +1,3 @@
-import { environment } from "../environment";
-import { User } from "../model/user";
-import { ShopItem } from "../model/item";
-import { Rarity } from "../model/rarity";
-import { ItemType } from "../model/itemType";
-
 export const authTypes = {
   INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
   FAILED_TO_LOGIN: 'FAILED_TO_LOGIN',
@@ -12,7 +6,7 @@ export const authTypes = {
 
 export const login = (username: string, password: string, history: any) => async(dispatch) => {
   try {
-    const resp = await fetch('http://localhost:8080/user/login', {
+    const resp = await fetch('http://localhost:8081/user/login', {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({username, password}),

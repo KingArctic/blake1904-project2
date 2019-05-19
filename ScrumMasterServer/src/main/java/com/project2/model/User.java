@@ -31,6 +31,9 @@ public class User {
 	private int avatar;
 	@ManyToMany
 	private List<ShopItem> inventory;
+	@OneToOne
+	private Overall topicLevels;
+	
 	@ManyToMany
 	private List<Question> javaQuestions;
 	@ManyToMany
@@ -52,7 +55,7 @@ public class User {
 	}
 
 	public User(int userId, String name, String email, String username, String password, int level, Bank account,
-			int avatar, List<ShopItem> inventory, List<Question> javaQuestions, List<Question> javaScriptQuestions,
+			int avatar, List<ShopItem> inventory, Overall topicLevels, List<Question> javaQuestions, List<Question> javaScriptQuestions,
 			List<Question> sqlQuestions, List<Question> hibernateQuestions, List<Question> springQuestions,
 			List<Question> reactQuestions, List<Question> nodeQuestions) {
 		super();
@@ -65,6 +68,7 @@ public class User {
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
+		this.topicLevels = topicLevels;
 		this.javaQuestions = javaQuestions;
 		this.javaScriptQuestions = javaScriptQuestions;
 		this.sqlQuestions = sqlQuestions;
@@ -75,7 +79,7 @@ public class User {
 	}
 
 	public User(String name, String email, String username, String password, int level, Bank account, int avatar,
-			List<ShopItem> inventory, List<Question> javaQuestions, List<Question> javaScriptQuestions,
+			List<ShopItem> inventory, Overall topicLevels, List<Question> javaQuestions, List<Question> javaScriptQuestions,
 			List<Question> sqlQuestions, List<Question> hibernateQuestions, List<Question> springQuestions,
 			List<Question> reactQuestions, List<Question> nodeQuestions) {
 		super();
@@ -87,6 +91,7 @@ public class User {
 		this.account = account;
 		this.avatar = avatar;
 		this.inventory = inventory;
+		this.topicLevels = topicLevels;
 		this.javaQuestions = javaQuestions;
 		this.javaScriptQuestions = javaScriptQuestions;
 		this.sqlQuestions = sqlQuestions;
@@ -100,10 +105,10 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", username=" + username
 				+ ", password=" + password + ", level=" + level + ", account=" + account + ", avatar=" + avatar
-				+ ", inventory=" + inventory + ", javaQuestions=" + javaQuestions + ", javaScriptQuestions="
+				+ ", inventory=" + inventory + ", topicLevels=" + topicLevels + ", javaQuestions=" + javaQuestions + ", javaScriptQuestions="
 				+ javaScriptQuestions + ", sqlQuestions=" + sqlQuestions + ", hibernateQuestions=" + hibernateQuestions
 				+ ", springQuestions=" + springQuestions + ", reactQuestions=" + reactQuestions + ", nodeQuestions="
-				+ nodeQuestions + "]";
+				+ nodeQuestions + "]"
 	}
 
 	@Override
@@ -121,6 +126,7 @@ public class User {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((nodeQuestions == null) ? 0 : nodeQuestions.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((topicLevels == null) ? 0 : topicLevels.hashCode());
 		result = prime * result + ((reactQuestions == null) ? 0 : reactQuestions.hashCode());
 		result = prime * result + ((springQuestions == null) ? 0 : springQuestions.hashCode());
 		result = prime * result + ((sqlQuestions == null) ? 0 : sqlQuestions.hashCode());
@@ -186,6 +192,11 @@ public class User {
 			if (other.password != null)
 				return false;
 		} else if (!password.equals(other.password))
+			return false;
+		if (topicLevels == null) {
+			if (other.topicLevels != null)
+				return false;
+		} else if (!topicLevels.equals(other.topicLevels))
 			return false;
 		if (reactQuestions == null) {
 			if (other.reactQuestions != null)
@@ -340,4 +351,18 @@ public class User {
 		this.nodeQuestions = nodeQuestions;
 	}
 
+
+
+
+	public Overall getTopicLevels() {
+		return topicLevels;
+	}
+
+
+
+	public void setTopicLevels(Overall topicLevels) {
+		this.topicLevels = topicLevels;
+	}
+	
+	
 }

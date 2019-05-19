@@ -1,13 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, /*RouteComponentProps*/ } from 'react-router-dom';
 import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav'
-import { User } from '../../model/user';
+// import { User } from '../../model/user';
 import ClickOutside from './click.outside';
+// import { IState, IAuthState } from '../../reducers';
+// import { connect } from 'react-redux';
 
+// This is the props for the Nav
+// interface INavBarProps extends RouteComponentProps {
+//   user: IAuthState
+// }
 
 // This is the state the Nav Bar
 interface INavBarState {
-  expanded: boolean
+  expanded: boolean,
+
 }
 
 export class NavComponent extends React.Component<any, INavBarState> {
@@ -19,7 +26,7 @@ export class NavComponent extends React.Component<any, INavBarState> {
   }
   render() {
     return (
-      <ClickOutside 
+      <ClickOutside
         onClickOutside={() => {
           this.setState({ expanded: false });
         }}
@@ -42,7 +49,6 @@ export class NavComponent extends React.Component<any, INavBarState> {
                 <Link to="/home" > <h5 className="nav_text titles">Home</h5> </Link>
               </NavText>
             </NavItem>
-
             <NavItem eventKey="userPage">
               <NavIcon>
                 <Link to="/user-page"><img alt="User Page"
@@ -74,8 +80,16 @@ export class NavComponent extends React.Component<any, INavBarState> {
 
           </SideNav.Nav>
         </SideNav >
-        </ClickOutside>
-        );
-      }
-    }
-    
+      </ClickOutside>
+    );
+  }
+}
+
+// const mapStateToProps = (state: IState) => {
+//   return {
+//     user: state.auth
+//   }
+// }
+
+// export default (connect(mapStateToProps)(NavComponent));
+

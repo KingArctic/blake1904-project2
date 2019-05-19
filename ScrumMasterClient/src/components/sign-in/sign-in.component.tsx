@@ -3,10 +3,12 @@ import { IAuthState, IState } from '../../reducers';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth.actions';
 import { RouteComponentProps, withRouter } from 'react-router';
+import NewUserComponent from '../home/RegisterForm';
 
 interface ISignInState {
   username: string;
   password: string;
+  toggle: boolean;
 }
 
 interface ISignInProps extends RouteComponentProps<{}>{
@@ -19,9 +21,19 @@ export class SignInComponent extends React.Component<ISignInProps, ISignInState>
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      toggle: false
     };
+
+    this.toggle = this.toggle.bind(this);
   }
+
+  async toggle() {
+    let newToggle = this.state.toggle;
+    await this.setState({
+      toggle: !newToggle
+    })
+}
 
   submit = async (event) => {
     event.preventDefault();
@@ -45,7 +57,8 @@ export class SignInComponent extends React.Component<ISignInProps, ISignInState>
     const { username, password } = this.state;
     const errorMessage = this.props.auth.errorMessage;
     return (
-      <form className="form-signin" onSubmit={this.submit}>
+      <div>
+      {!this.state.toggle && <form className="form-signin" onSubmit={this.submit}>
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input type="text" id="inputUsername" name="username"
@@ -59,7 +72,10 @@ export class SignInComponent extends React.Component<ISignInProps, ISignInState>
 
         <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         <p id="login-error">{errorMessage}</p>
-      </form>
+        <button className="btn btn-lg btn-primary btn-block" onClick={this.toggle}>Register</button>
+      </form>}
+      {this.state.toggle && <NewUserComponent />}
+      </div>
     );
   }
 }
