@@ -10,6 +10,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
 import { TitleComponent } from './components/titleComponent';
 import { UserPageComponent } from './components/user-page/user.page.component';
+import { ScrollingScoreboardComponent } from './components/scoreboard/scrolling-scoreboard.component';
 
 
 const App: React.FC = () => {

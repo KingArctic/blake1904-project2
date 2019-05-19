@@ -10,6 +10,7 @@ import SignInComponent from '../sign-in/SignInComponent';
 import CurrentItems from './CurrentItems';
 import NewUserComponent from './RegisterForm';
 import { TitleComponent } from '../titleComponent';
+import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
 
 export class HomeComponent extends React.Component {
 
@@ -19,26 +20,21 @@ export class HomeComponent extends React.Component {
 
   render() {
     return (
-
-      <div className="homeContainer">
-
-
-            <div className="home_center">
+      <div>
+        <div className="homeContainer">
+          <div className="home_center">
             <UserCard user={this.aUser} />
             <Description />
-          
-          <QuoteComponent />
-            </div>
 
-            <div >
+            <QuoteComponent />
+          </div>
+          <div >
             <SignInComponent />
             <NewUserComponent />
           </div>
-
-
-        
         </div>
-
+        <ScrollingScoreboardComponent />
+      </div>
     );
   }
 }

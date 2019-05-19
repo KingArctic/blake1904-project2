@@ -216,23 +216,18 @@ $screen-xl-min: 1200px;
 
 #scrolling-scoreboard {
   bottom: 0%;
-  position: fixed;
-  height: 100px;
-  width: 1000px;
+  position: static;
+  height: 6.25em;
+  width: 62.5em;
   font-size: 50px;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
-  word-spacing: 150px;
+  word-spacing: 6em;
   animation-name: scrolling-text;
-  animation-duration: 120s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-}
-
-#progress {
-  animation-name: scrolling-text;
-  animation-duration: 120s;
 }
 
 @keyframes scrolling-text {
