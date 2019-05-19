@@ -31,7 +31,7 @@ export class SISelectorComponent extends React.Component<any, ISelectorState> {
                     <ShopComponent />
                 </div>}
                 {!this.state.showShop && <div>
-                    <InventoryComponent />
+                    <InventoryComponent user={undefined}/>
                 </div>}
             </div>
         );

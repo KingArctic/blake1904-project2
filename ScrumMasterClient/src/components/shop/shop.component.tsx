@@ -26,7 +26,7 @@ export class ShopComponent extends React.Component<any, IShopState> {
         return (
             <div className="container">
                 <div className="row">
-                    {this.state.itemlist.map(item => (<ShopCardComponent item={item}/>))}
+                    {this.state.itemlist.map(item => (<ShopCardComponent key={item.itemId} item={item}/>))}
                 </div>
             </div>
         )
