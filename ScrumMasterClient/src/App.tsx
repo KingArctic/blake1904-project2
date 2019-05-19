@@ -10,6 +10,8 @@ import { NavComponent } from './components/nav/nav.component';
 import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
 import { TitleComponent } from './components/titleComponent';
 import  UserPageComponent  from './components/user-page/user.page.component';
+import { QuestionPageComponent } from './components/trivia-section/trivia.page.component';
+
 
 
 const App: React.FC = () => {
@@ -29,6 +31,7 @@ const App: React.FC = () => {
             <Route path="/sign-in" component={SignInComponent} />
             <Route path="/user-page" component={UserPageComponent} />
             <Route path="/shop" component={SISelectorComponent} />
+            <Route path="/question-master" component={QuestionPageComponent} />
             <Route component={HomeComponent} />
           </Switch>
           </div>
