@@ -14,7 +14,7 @@ interface IQuestionTypeProps extends RouteComponentProps {
   category: QuestionType;
   difficulty: number;
   question: User;
-  sendToQuestions: (currentCategory: QuestionType, history:any) => any;
+  sendToQuestions: (currentCategory: QuestionType, categoryName: number, history:any) => any;
 }
 
 interface IQuestionTypeState {
@@ -31,9 +31,11 @@ export class CategoryCardComponent extends React.Component<IQuestionTypeProps, I
   }
 
   render() {
+    const catName = this.state.currCat.questionTypeId;
+    console.log(catName);
     return (
       <div>
-        <Card id="category-info-content" onClick={() => this.props.sendToQuestions(this.state.currCat, this.props.history)}>
+        <Card id="category-info-content" onClick={() => this.props.sendToQuestions(this.state.currCat, catName, this.props.history)}>
           <CardBody >
             <div >
               <div ><img

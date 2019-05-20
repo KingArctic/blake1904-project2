@@ -13,6 +13,7 @@ interface IQuestionProps extends RouteComponentProps {
   question: Question;
   user: IAuthState;
   currentCat: ICategoryState;
+  categoryName: number;
   fetchArrays: (category: string, difficulty: number, user: User) => any;
 }
 
@@ -29,7 +30,6 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
   }
 
   async componentDidMount() {
-    const test = this.state.currentCartegory.currentCategory;
     if (this.props.user.currentUser) {
       if (this.props.user.currentUser.javaQuestions.length === 0) {
         await this.props.fetchArrays("Java", this.props.user.currentUser.topicLevels.javaDifficulty + 1, this.props.user.currentUser);
@@ -68,7 +68,35 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
   }
 
   render() {
-    console.log(this.props.currentCat.currentCategory);
+    let consoleNumber : number = +this.props.categoryName.toLocaleString();
+    console.log(consoleNumber);
+    let consoleString:string = '';
+    switch (consoleNumber) {
+      case 1:
+        consoleString = '\n\n\n\n\n 1 \n\n\n\n\n';
+        break;
+      case 2:
+        consoleString = '\n\n\n\n\n 2 \n\n\n\n\n';
+        break;
+      case 3:
+        consoleString = '\n\n\n\n\n 3 \n\n\n\n\n';
+        break;
+      case 4:
+        consoleString = '\n\n\n\n\n 4 \n\n\n\n\n';
+        break;
+      case 5:
+        consoleString = '\n\n\n\n\n 5 \n\n\n\n\n';
+        break;
+      case 6:
+        consoleString = '\n\n\n\n\n 6 \n\n\n\n\n';
+        break;
+      case 7:
+        consoleString = '\n\n\n\n\n 7 \n\n\n\n\n';
+        break;
+    }
+
+    console.log(consoleString);
+
     return (
       <div>
         <QuestionCardComponent question={this.props.question} />
@@ -80,7 +108,8 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
 const mapStateToProps = (state: IState) => {
   return {
     user: state.auth,
-    currentCat: state.category
+    currentCat: state.category,
+    categoryName: state.category.categoryName,
   }
 }
 

@@ -69,7 +69,7 @@ public class UserService {
 	}
 
 	public User getScrumMaster() {
-		return userRepo.getOneScrumMaster();
+		return userRepo.findScroreboard().get(0);
 	}
 	
 }

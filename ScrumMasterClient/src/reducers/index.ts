@@ -12,12 +12,13 @@ export interface IAuthState {
 // This is our Category State
 export interface ICategoryState {
   categoryList: QuestionType[],
-  currentCategory : QuestionType
+  currentCategory : QuestionType,
+  categoryName: number,
 } 
 //this connects states to props
 export interface IState {
   auth: IAuthState;
-  category: ICategoryState
+  category: ICategoryState;
 }
 //this connects reducers and states
 export const state = combineReducers<IState>({

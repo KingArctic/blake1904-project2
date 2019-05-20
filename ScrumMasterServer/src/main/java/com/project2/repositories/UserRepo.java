@@ -13,9 +13,6 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 	
 	@Query("FROM User u ORDER BY u.points DESC")
 	public List<User> findScroreboard();
-	
-	@Query("FROM User u ORDER BY u.points DESC")
-	public User getOneScrumMaster();
 
 }
 

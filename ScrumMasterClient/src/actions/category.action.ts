@@ -7,6 +7,7 @@ export const progressTypes = {
   FAILED_TO_GET_PROGRESS: 'FAILED_TO_GET_PROGRESS',
   GET_CATEGORIES: 'GET_CATEGORIES',
   SET_CATEGORY: 'SET_CATEGORY',
+  NAME_CATEGORY: 'NAME_CATEGORY',
   UPDATE_USER: 'UPDATE_USER',
 }
 
@@ -51,14 +52,22 @@ export const getCategories = () => async (dispatch) => {
   }
 }
 
-export const sendToQuestions = (currentCategory: QuestionType, history: any) => async (dispatch) => {
-  dispatch({
+export const sendToQuestions = (currentCategory: QuestionType, categoryName: number, history: any) => async (dispatch) => {
+  await dispatch({
     payload: {
       body: {
         currentCategory
       }
     },
     type: progressTypes.SET_CATEGORY
+  })
+  await dispatch({
+    payload: {
+      body: {
+        categoryName
+      }
+    },
+    type: progressTypes.NAME_CATEGORY
   })
   history.push('/quiz');
 }
