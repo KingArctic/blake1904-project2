@@ -2,12 +2,17 @@ import React from 'react';
 import { ShopComponent } from '../shop/shop.component';
 import { InventoryComponent } from '../inventory/inventory.component';
 import { Button } from 'reactstrap';
+import { IAuthState, IState } from '../../reducers';
+import { connect } from 'react-redux';
 
 interface ISelectorState {
     showShop: boolean,
 }
+interface ISelectorProps {
+    user: IAuthState;
+}
 
-export class SISelectorComponent extends React.Component<any, ISelectorState> {
+export class SISelectorComponent extends React.Component<ISelectorProps, ISelectorState> {
     constructor(props: any) {
         super(props);
         this.state = {
@@ -31,9 +36,19 @@ export class SISelectorComponent extends React.Component<any, ISelectorState> {
                     <ShopComponent />
                 </div>}
                 {!this.state.showShop && <div>
-                    <InventoryComponent user={undefined}/>
+                    <InventoryComponent user={this.props.user.currentUser}/>
                 </div>}
             </div>
         );
     }
 }
+const mapStateToProps = (state: IState) => {
+    return {
+        user: state.auth
+
+    }
+}
+
+
+
+export default (connect(mapStateToProps)(SISelectorComponent));

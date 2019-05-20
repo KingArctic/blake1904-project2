@@ -2,9 +2,10 @@ import React from 'react';
 import { User } from '../model/user';
 import avatar from '../assets/avatar.png';
 import { Card, CardBody, Row, CardTitle } from 'reactstrap';
+import { NewUser } from '../model/NewUser';
 
 interface Iuser {
-  user: User;
+  user: NewUser;
 
 }
 export class UserCard extends React.Component<Iuser> {

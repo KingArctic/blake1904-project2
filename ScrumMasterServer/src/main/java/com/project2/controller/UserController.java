@@ -37,9 +37,13 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
-	@GetMapping("{id}/invetory")
+	@GetMapping("inventory/{id}")
 	public List<ShopItem> getInventoryByID(@PathVariable int id) {
-		return userService.findById(id).getInventory();
+		User tempUser = userService.findById(id);
+		System.out.println(tempUser);
+		List<ShopItem> inventory = tempUser.getInventory();
+		System.out.println(inventory);
+		return inventory;
 	}
 	
 	@PostMapping()

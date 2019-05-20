@@ -4,9 +4,10 @@ import { ShopItem } from '../../model/item';
 import { IAuthState, IState } from '../../reducers';
 import { UserPageComponent } from '../user-page/user.page.component';
 import { connect } from 'react-redux';
+import { User } from '../../model/user';
 
 interface IInventoryProps {
-    user?: IAuthState;
+    user?: User;
 }
 
 interface IInventoryState {
@@ -21,18 +22,16 @@ export class InventoryComponent extends React.Component<IInventoryProps, IInvent
         };
     }
 
-    async componentDidMount() {
+    componentDidMount = async () => {
 
         if (this.props.user) {
-            if (this.props.user.currentUser) {
-                let user = this.props.user.currentUser;
+                let user = this.props.user;
                 console.log(user);
-                const resp = await fetch('http://localhost:8081/' + user.userId + '/inventory', { method: 'GET', credentials: 'include' })
+                const resp = await fetch('http://localhost:8081/user/inventory/' + user.userId, { method: 'GET', credentials: 'include' })
                 const body = await resp.json();
                 await this.setState({
                     itemlist: body
                 });
-            }
         }
     }
 
@@ -46,14 +45,3 @@ export class InventoryComponent extends React.Component<IInventoryProps, IInvent
         )
     };
 }
-
-const mapStateToProps = (state: IState) => {
-    return {
-        user: state.auth
-
-    }
-}
-
-
-
-export default (connect(mapStateToProps)(UserPageComponent));

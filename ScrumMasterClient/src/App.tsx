@@ -7,7 +7,7 @@ import SignInComponent from './components/sign-in/sign-in.component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import { NavComponent } from './components/nav/nav.component';
-import { SISelectorComponent } from './components/shop-inventory-selector/shop-inventory-selector.component';
+import  SISelectorComponent  from './components/shop-inventory-selector/shop-inventory-selector.component';
 import { TitleComponent } from './components/titleComponent';
 import  UserPageComponent  from './components/user-page/user.page.component';
 import CategoryPageComponent from './components/trivia-section/category.page.component';
