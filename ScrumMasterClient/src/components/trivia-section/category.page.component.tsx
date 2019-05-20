@@ -17,7 +17,7 @@ interface IQuestionTypeProps extends RouteComponentProps {
 export class CategoryPageComponent extends React.Component<IQuestionTypeProps>{
 
     componentDidMount = () => {
-        this.props.getProgress(0);
+        //this.props.getProgress(0);
         this.props.getCategories();
       };
 
@@ -28,8 +28,8 @@ export class CategoryPageComponent extends React.Component<IQuestionTypeProps>{
             <div className="container">
             <div className="row" >
             {this.props.category.categoryList.map( thisCategory => (
-                <CategoryCardComponent key={'catagory ' + thisCategory.qTypeId} category = {thisCategory} 
-                difficulty={user.topicLevels.javaDifficulty}/>
+                <CategoryCardComponent key={'catagory ' + thisCategory.questionTypeId} category = {thisCategory} 
+                difficulty={user.topicLevels.javaDifficulty} question={user}/>
             ))}
             </div>
             </div>

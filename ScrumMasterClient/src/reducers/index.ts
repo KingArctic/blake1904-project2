@@ -12,7 +12,7 @@ export interface IAuthState {
 // This is our Category State
 export interface ICategoryState {
   categoryList: QuestionType[],
-
+  currentCategory : QuestionType
 } 
 //this connects states to props
 export interface IState {

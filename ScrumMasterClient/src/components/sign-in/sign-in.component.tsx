@@ -1,9 +1,10 @@
 import React from 'react';
 import { IAuthState, IState } from '../../reducers';
 import { connect } from 'react-redux';
-import { login } from '../../actions/auth.actions';
+import { login, register } from '../../actions/auth.actions';
 import { RouteComponentProps, withRouter } from 'react-router';
 import NewUserComponent from '../home/RegisterForm';
+
 
 interface ISignInState {
   username: string;
@@ -14,6 +15,7 @@ interface ISignInState {
 interface ISignInProps extends RouteComponentProps<{}>{
   auth: IAuthState
   login: (username: string, password: string, history: any) => void
+  register: (name:string, username: string, password: string, email: string, history:any) => any
 }
 
 export class SignInComponent extends React.Component<ISignInProps, ISignInState> {
@@ -74,7 +76,7 @@ export class SignInComponent extends React.Component<ISignInProps, ISignInState>
         <p id="login-error">{errorMessage}</p>
         <button className="btn btn-lg btn-primary btn-block" onClick={this.toggle}>Register</button>
       </form>}
-      {this.state.toggle && <NewUserComponent />}
+      {this.state.toggle && <NewUserComponent  />}
       </div>
     );
   }
@@ -87,7 +89,8 @@ const mapStateToProps = (state: IState) => {
 }
 
 const mapDispatchToProps = {
-  login: login
+  login: login,
+  register: register
 }
 
 export default withRouter (connect(mapStateToProps, mapDispatchToProps)(SignInComponent));

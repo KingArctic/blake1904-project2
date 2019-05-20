@@ -1,3 +1,5 @@
+import { QuestionType } from "./QuestionType";
+
 export class Question {
     questionId: number;
     question: string;
@@ -5,13 +7,13 @@ export class Question {
     wrongAnswerA: string;
     wrongAnswerB: string;
     wrongAnswerC: string;
-    questionTypeId: number;
+    questionTypeId: QuestionType;
     difficulty: number;
     
 
     constructor(questionId: number, question: string, answer: string, 
         wrongAnswerA: string, wrongAnswerB: string, wrongAnswerC: string, 
-        questionTypeId: number, difficulty: number) {
+        questionTypeId= new QuestionType(0,""), difficulty: number) {
         this.questionId = questionId;
         this.question = question;
         this.answer = answer;

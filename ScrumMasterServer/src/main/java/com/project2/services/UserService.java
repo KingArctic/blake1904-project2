@@ -39,7 +39,7 @@ public class UserService {
 		System.out.println(new Bank(0));
 		Bank newAccount = bankService.save(new Bank(0));
 		System.out.println(newAccount);
-		Overall newOverall = overallService.save(new Overall(1,1,1,1,1,1,1));
+		Overall newOverall = overallService.save(new Overall(0,0,0,0,0,0,0));
 		System.out.println(newOverall);
 		User user = new User(u.getName(), u.getEmail(), u.getUsername(), u.getPassword(), newAccount, newOverall);
 		System.out.println(user);
@@ -54,6 +54,18 @@ public class UserService {
 
 	public User login(CredentialDto user) {
 		return userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+	}
+
+	public ResponseEntity<User> update(User u, HttpServletRequest req) {
+		bankService.save(u.getAccount());
+		overallService.save(u.getTopicLevels());
+		User savedUser = userRepo.save(u);
+		if (savedUser != null) {
+			req.getSession().setAttribute("user", savedUser);
+			return new ResponseEntity<User>(savedUser, HttpStatus.ACCEPTED);
+		} else {
+			return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 }

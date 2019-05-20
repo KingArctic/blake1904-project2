@@ -2,9 +2,11 @@ package com.project2.services;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project2.Dto.QuestionDto;
 import com.project2.model.Question;
 import com.project2.repositories.QuestionRepo;
 
@@ -24,5 +26,9 @@ public class QuestionService {
 		
 		public Question save(Question q) {
 			return questionRepo.save(q);
+		}
+
+		public List<Question> findByTypeAndDifficulty(QuestionDto q) {
+			return questionRepo.findbyTypeAndDifficulty(q.getType(), q.getDif());
 		}
 }

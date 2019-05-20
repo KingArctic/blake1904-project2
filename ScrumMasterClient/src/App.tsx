@@ -12,6 +12,7 @@ import { TitleComponent } from './components/titleComponent';
 import  UserPageComponent  from './components/user-page/user.page.component';
 import CategoryPageComponent from './components/trivia-section/category.page.component';
 import { ScrollingScoreboardComponent } from './components/scoreboard/scrolling-scoreboard.component';
+import  QuestionComponent  from './components/trivia-section/question.page.component';
 
 
 
@@ -32,7 +33,7 @@ const App: React.FC = () => {
             <Route path="/user-page" component={UserPageComponent} />
             <Route path="/shop" component={SISelectorComponent} />
             <Route path="/question-master" component={CategoryPageComponent} />
-            <Route path="/quiz" component={CategoryPageComponent} />
+            <Route path="/quiz" component={QuestionComponent} />
             <Route component={HomeComponent} />
           </Switch>
           </div>

@@ -1,9 +1,9 @@
 export class QuestionType {
-    qTypeId: number;
+    questionTypeId: number;
     category: string;
 
     constructor(qTypeId: number, category: string) {
-        this.qTypeId = qTypeId;
+        this.questionTypeId = qTypeId;
         this.category = category;
     }
 }
