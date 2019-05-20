@@ -89,7 +89,8 @@ export const fetchArrays = (type: string, dif: number, user: User) => async (dis
         case "Java":
           {
             console.log(`Hit Java`);
-            const javaQuestions = await resp.json();
+            user.javaQuestions = await resp.json();
+            console.log(user.javaQuestions);
             user.topicLevels.javaDifficulty += 1;
             try {
               const resp2 = await fetch('http://localhost:8081/user', {

@@ -25,12 +25,12 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         currentUser: action.payload.user,
       }
-    case progressTypes.UPDATE_USER:
-      return {
-        ...state,
-        currentUser: action.payload.updatedUser,
+    // case progressTypes.UPDATE_USER:
+    //   return {
+    //     ...state,
+    //     currentUser: action.payload.updatedUser,
 
-      }
+    //   }
     default:
       break;
   }

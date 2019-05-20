@@ -10,6 +10,7 @@ export class User {
   username: string;
   password: string;
   level: number;
+  points: number;
   email: string;
   account: Bank;
   inventory: ShopItem[];
@@ -22,7 +23,7 @@ export class User {
   reactQuestions: Question[];
   nodeQuestions: Question[];
 
-  constructor(userId = 0, avatar = 0, name = '', username = '', password = '', level = 0, email= '', account= new Bank(0,0), 
+  constructor(userId = 0, avatar = 0, name = '', username = '', password = '', level = 0, points = 0, email= '', account= new Bank(0,0), 
   inventory: ShopItem[], topicLevels = new Overall(0,1,1,1,1,1,1,1), javaQuestions: Question[],
   javaScriptQuestions: Question[], sqlQuestions: Question[], hibernateQuestions: Question[], 
   springQuestions: Question[], reactQuestions: Question[],  nodeQuestions: Question[]) {
@@ -32,6 +33,7 @@ export class User {
     this.username = username;
     this.password = password;
     this.level = level;
+    this.points = points;
     this.email = email;
     this.account = account;
     this.inventory = inventory

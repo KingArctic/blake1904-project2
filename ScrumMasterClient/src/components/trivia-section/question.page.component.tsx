@@ -29,7 +29,7 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
   }
 
   async componentDidMount() {
-    const test = this.state.currentCartegory.currentCategory;
+    console.log(this.props.user);
     if (this.props.user.currentUser) {
       if (this.props.user.currentUser.javaQuestions.length === 0) {
         await this.props.fetchArrays("Java", this.props.user.currentUser.topicLevels.javaDifficulty + 1, this.props.user.currentUser, this.props.history);
@@ -69,12 +69,15 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
 
   render() {
     console.log(this.props.currentCat.currentCategory);
-    let thisUser;
+    let thisUser; 
+    if (this.props.user.currentUser) {
+      thisUser = this.props.user.currentUser;
+    }
     if(this.props.user && this.props.user.currentUser && this.props.user.currentUser.javaQuestions){
 
     return (
       <div>
-        <QuestionCardComponent question={this.props.user.currentUser.javaQuestions[0]} user={thisUser} category={this.props.currentCat.currentCategory.category}/>
+        {(this.props.user.currentUser && this.props.user.currentUser.javaQuestions.length > 0) && <QuestionCardComponent question={this.props.user.currentUser.javaQuestions[0]} user={thisUser} category={this.props.currentCat.currentCategory.category}/>}
         
       </div>
     )
