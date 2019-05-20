@@ -4,6 +4,7 @@ import { InventoryComponent } from '../inventory/inventory.component';
 import { Button } from 'reactstrap';
 import { IAuthState, IState } from '../../reducers';
 import { connect } from 'react-redux';
+import SignInComponent from '../sign-in/sign-in.component';
 
 interface ISelectorState {
     showShop: boolean,
@@ -29,26 +30,35 @@ export class SISelectorComponent extends React.Component<ISelectorProps, ISelect
     }
 
     render() {
-        return (
-            <div>
-                <Button onClick={this.changeBool} style={{ marginBottom: '20px' }}>Change Bag!</Button>
-                {this.state.showShop && <div>
-                    <ShopComponent />
-                </div>}
-                {!this.state.showShop && <div>
-                    <InventoryComponent user={this.props.user.currentUser}/>
-                </div>}
-            </div>
-        );
+        if (this.props.user && this.props.user.currentUser) {
+            return (
+                <div>
+                    <Button onClick={this.changeBool} style={{ marginBottom: '20px' }}>Change Bag!</Button>
+                    {this.state.showShop && <div>
+                        <ShopComponent />
+                    </div>}
+                    {!this.state.showShop && <div>
+                        <InventoryComponent user={this.props.user.currentUser} />
+                    </div>}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <div> <SignInComponent /></div>
+                </div>
+            )
+        }
     }
 }
-const mapStateToProps = (state: IState) => {
-    return {
-        user: state.auth
+    const mapStateToProps = (state: IState) => {
+        return {
+            user: state.auth
 
+        }
     }
-}
 
 
 
-export default (connect(mapStateToProps)(SISelectorComponent));
+
+    export default(connect(mapStateToProps)(SISelectorComponent));

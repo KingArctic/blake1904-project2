@@ -9,51 +9,52 @@ import { connect } from 'react-redux';
 
 
 interface IQuestionTypeProps extends RouteComponentProps {
-     category: ICategoryState;
-     user: IAuthState;
-     getProgress: (userID: number) => any;
-     getCategories: () => any
- }
+  category: ICategoryState;
+  user: IAuthState;
+  getProgress: (userID: number) => any;
+  getCategories: () => any
+}
 export class CategoryPageComponent extends React.Component<IQuestionTypeProps>{
 
-    componentDidMount = () => {
-        //this.props.getProgress(0);
-        this.props.getCategories();
-      };
+  componentDidMount = () => {
+    this.props.getCategories();
+  };
 
-    render() {
-        if(this.props.user && this .props.user.currentUser){
-            let user = this.props.user.currentUser
-        return (
-            <div className="container">
-            <div className="row" >
-            {this.props.category.categoryList.map( thisCategory => (
-                <CategoryCardComponent key={'catagory ' + thisCategory.questionTypeId} category = {thisCategory} 
-                difficulty={user.topicLevels.javaDifficulty} question={user}/>
+  render() {
+    if (this.props.user && this.props.user.currentUser) {
+      let user = this.props.user.currentUser
+      console.log('look at meee' + this.props.category.categoryList)
+      return (
+
+        <div className="container">
+          <div className="row" >
+            {this.props.category.categoryList.map(thisCategory => (
+              <CategoryCardComponent key={'catagory ' + thisCategory.questionTypeId} category={thisCategory}
+                difficulty={user.topicLevels.javaDifficulty} question={user} />
             ))}
-            </div>
-            </div>
-        )
-    }else {
-    return(
-      <div>
-      <div> <SignInComponent/></div>
-      </div>
-    )
-  }
-}
-}
-const mapStateToProps = (state: IState) => {
-    return {
-      user: state.auth,
-      category: state.category
-  
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <div> <SignInComponent /></div>
+        </div>
+      )
     }
   }
-  
-  const mapDispatchToProps = {
-    getProgress: getProgress,
-    getCategories: getCategories,
+}
+const mapStateToProps = (state: IState) => {
+  return {
+    user: state.auth,
+    category: state.category
+
   }
-  
-  export default withRouter (connect(mapStateToProps, mapDispatchToProps)(CategoryPageComponent));
+}
+
+const mapDispatchToProps = {
+  getProgress: getProgress,
+  getCategories: getCategories,
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CategoryPageComponent));

@@ -14,7 +14,11 @@ export class Question {
 
     constructor(questionId: number, question: string, answer: string, 
         wrongAnswerA: string, wrongAnswerB: string, wrongAnswerC: string, 
+<<<<<<< Updated upstream
         questionTypeId= new QuestionType(0,""), difficulty= new Difficulty(0,0)) {
+=======
+        questionTypeId= new QuestionType(0,''), difficulty: number) {
+>>>>>>> Stashed changes
         this.questionId = questionId;
         this.question = question;
         this.answer = answer;

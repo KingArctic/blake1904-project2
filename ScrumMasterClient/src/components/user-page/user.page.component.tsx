@@ -7,6 +7,7 @@ import { IState, IAuthState } from '../../reducers';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { User } from '../../model/user';
+import  SignInComponent  from '../sign-in/sign-in.component';
 
 
 interface IUPageProps extends RouteComponentProps {
@@ -44,31 +45,13 @@ export class UserPageComponent extends React.Component<IUPageProps>{
             </div>
         )
     } else {
-    return (
-        <div id="user-page"  >
-            <Container id="user-card-c">
-                <Card id="user-card-content">
-                    <CardBody className="justify-content-center text-center">
-                        <Row className="justify-content-md-center ">
-                            <UserIconComponent user={this.props.defaultUser} /></Row>
-                        <Row className="justify-content-center"><CardTitle><h5 className="titles">USERNAME</h5></CardTitle></Row>
-                        <Row className="justify-content-center"> <CardTitle><h5 className="title">Rank</h5></CardTitle></Row>
-                        <Row className="justify-content-center"> <CardTitle>{"<"}Level{">"}</CardTitle></Row>
-
-                    </CardBody>
-                </Card>
-            </Container>
-            <Row>
-            <Container id="user-achieve-c">
-                <UserAchieveComponent user={this.props.defaultUser}/>
-            </Container>
-            <Container id="user-info-c">
-                <UserInfoComponent user={this.props.defaultUser} />
-            </Container>
-            </Row>
-        </div>
-    )
-}}}
+            return(
+              <div>
+              <div> <SignInComponent/></div>
+              </div>
+            )
+          }
+}}
 const mapStateToProps = (state: IState) => {
     return {
       user: state.auth

@@ -9,14 +9,21 @@ import Description from './DescriptionComponent';
 import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
 import SignInComponent from '../sign-in/sign-in.component';
 import { NewUser } from '../../model/NewUser';
+import { IAuthState, IState } from '../../reducers';
+import { connect } from 'react-redux';
 
-export class HomeComponent extends React.Component {
+interface ISelectorProps {
+  user: IAuthState;
+}
+
+export class HomeComponent extends React.Component<any,ISelectorProps> {
 
   aUser = new NewUser("Danae", "Nae", "name", undefined,);
   point = 80;
   topic = 1;
 
   render() {
+    if(this.props.user && this.props.user.currentUser){
     return (
       <div>
         <div className="homeContainer">
@@ -28,15 +35,40 @@ export class HomeComponent extends React.Component {
 
             <QuoteComponent />
           </div>
-          <div className="sign_in">
-            <SignInComponent />
-          </div>
-        </div>
+          
+        </div> 
         {/* <ScrollingScoreboardComponent /> */}
       </div>
 
     );
+  }else {
+    return (
+      <div>
+        <div className="homeContainer">
+          <div className="home_center">
+          
+            <UserCard user={this.aUser} />
+            Current Scrum Master
+            <Description />
+
+            <QuoteComponent />
+          </div>
+          
+          <div className="sign_in">
+          
+            <SignInComponent />
+          </div>
+        </div> 
+        {/* <ScrollingScoreboardComponent /> */}
+      </div>
+    )}
+}
+}
+const mapStateToProps = (state: IState) => {
+  return {
+      user: state.auth
+
   }
 }
 
-export default HomeComponent;
+export default(connect(mapStateToProps)(HomeComponent));

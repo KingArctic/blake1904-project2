@@ -71,10 +71,10 @@ $screen-xl-min: 1200px;
   background-color: #1f1f1f;
   color:  #FFE82A
 }
-body{
-  background-color: #1f1f1f;
-  color:  #FFE82A
-}
+
+body {
+  background-image: linear-gradient(#1f1f1f, #1f1f1f, #1f1f1f);
+ }
 
 .App-link {
   color: #61dafb;
@@ -315,6 +315,12 @@ body {
   padding: 0.5em;
   font-family: 'Quantico', sans-serif;
   
+}
+
+.fill_page{
+  height: 33em;
+  bottom: 100%;
+  background-color: #1f1f1f
 }
 /*****************************
       GENERIC STYLES

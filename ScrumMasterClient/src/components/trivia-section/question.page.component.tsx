@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { fetchArrays } from '../../actions/category.action';
 import { User } from '../../model/user';
-import { QuestionType } from '../../model/QuestionType';
+import  SignInComponent  from '../sign-in/sign-in.component';
 
 
 interface IQuestionProps extends RouteComponentProps {
@@ -17,14 +17,14 @@ interface IQuestionProps extends RouteComponentProps {
 }
 
 interface IQuestionState {
-  currentCartegory: ICategoryState;
+  currentCartegory: string;
 }
 
 export class QuestionComponent extends React.Component<IQuestionProps, IQuestionState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      currentCartegory: this.props.currentCat,
+      currentCartegory: this.props.currentCat.currentCategory.category,
     };
   }
 
@@ -33,35 +33,11 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
     if (this.props.user.currentUser) {
       if (this.props.user.currentUser.javaQuestions.length === 0) {
         await this.props.fetchArrays("Java", this.props.user.currentUser.topicLevels.javaDifficulty + 1, this.props.user.currentUser, this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.javaScriptQuestions.length === 0) {
         await this.props.fetchArrays("JavaScript", this.props.user.currentUser.topicLevels.jsDifficulty + 1, this.props.user.currentUser, this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.hibernateQuestions.length === 0) {
         await this.props.fetchArrays("Hibernate", this.props.user.currentUser.topicLevels.hibernateDifficulty + 1, this.props.user.currentUser,this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.nodeQuestions.length === 0) {
         await this.props.fetchArrays("Node", this.props.user.currentUser.topicLevels.nodeDifficulty + 1, this.props.user.currentUser ,this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.sqlQuestions.length === 0) {
         await this.props.fetchArrays("SQL", this.props.user.currentUser.topicLevels.sqlDifficulty + 1, this.props.user.currentUser, this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.springQuestions.length === 0) {
         await this.props.fetchArrays("Spring", this.props.user.currentUser.topicLevels.springDifficulty + 1, this.props.user.currentUser, this.props.history);
-      }
-    }
-    if (this.props.user.currentUser) {
-      if (this.props.user.currentUser.reactQuestions.length === 0) {
         await this.props.fetchArrays("React", this.props.user.currentUser.topicLevels.reactDifficulty + 1, this.props.user.currentUser,this.props.history);
       }
     }
@@ -74,7 +50,6 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
       thisUser = this.props.user.currentUser;
     }
     if(this.props.user && this.props.user.currentUser && this.props.user.currentUser.javaQuestions){
-
     return (
       <div>
         {(this.props.user.currentUser && this.props.user.currentUser.javaQuestions.length > 0) && <QuestionCardComponent question={this.props.user.currentUser.javaQuestions[0]} user={thisUser} category={this.props.currentCat.currentCategory.category}/>}
@@ -83,7 +58,9 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
     )
   } else {
     return (
-      <div>IDK</div>
+      <div>
+              <div> <SignInComponent/></div>
+              </div>
     )
   }
 }
