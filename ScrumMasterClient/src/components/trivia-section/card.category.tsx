@@ -23,7 +23,7 @@ export class CategoryCardComponent extends React.Component<IQuestionTypeProps> {
                 <CardTitle><h5 className="titles">{this.props.category.category}</h5></CardTitle>
                 <div >
                 <CardText className="clevel">0</CardText>
-                <ProgressBarComponent />
+                <ProgressBarComponent point={0} />
                 </div>
             </CardBody>
         </Card>
