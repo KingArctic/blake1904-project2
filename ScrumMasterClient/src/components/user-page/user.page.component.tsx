@@ -27,8 +27,8 @@ export class UserPageComponent extends React.Component<IUPageProps>{
                             <Row className="justify-content-md-center ">
                                 <UserIconComponent user={this.props.user.currentUser} /></Row>
                             <Row className="justify-content-center"><CardTitle><h5 className="titles">{this.props.user.currentUser.username}</h5></CardTitle></Row>
-                            <Row className="justify-content-center"> <CardTitle><h5 className="title">Rank</h5></CardTitle></Row>
-                            <Row className="justify-content-center"> <CardTitle>{"<"}Level{">"}</CardTitle></Row>
+                            <Row className="justify-content-center"> <CardTitle><h5 className="title">Level</h5></CardTitle></Row>
+                            <Row className="justify-content-center"> <CardTitle>{"<"}{this.props.user.currentUser.level}{">"}</CardTitle></Row>
 
                         </CardBody>
                     </Card>
