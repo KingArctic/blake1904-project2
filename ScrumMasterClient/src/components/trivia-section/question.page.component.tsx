@@ -68,7 +68,7 @@ export class QuestionComponent extends React.Component<IQuestionProps, IQuestion
   }
 
   render() {
-    console.log(this.props.currentCat.currentCategory.category);
+    console.log(this.props.currentCat.currentCategory);
     return (
       <div>
         <QuestionCardComponent question={this.props.question} />

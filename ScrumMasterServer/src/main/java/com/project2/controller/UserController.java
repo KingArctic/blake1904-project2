@@ -27,17 +27,22 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@GetMapping()
-	public List<User> findAll(){
+	public List<User> findAll() {
 		return userService.findAll();
 	}
-	
+
 	@GetMapping("{id}")
 	public User findById(@PathVariable int id) {
 		return userService.findById(id);
 	}
-	
+
+	@GetMapping("/highest")
+	public User getScrumMaster() {
+		return userService.getScrumMaster();
+	}
+
 	@GetMapping("inventory/{id}")
 	public List<ShopItem> getInventoryByID(@PathVariable int id) {
 		User tempUser = userService.findById(id);
@@ -46,17 +51,17 @@ public class UserController {
 		System.out.println(inventory);
 		return inventory;
 	}
-	
+
 	@PostMapping()
 	public ResponseEntity<User> save(@RequestBody NewUserDto u, HttpServletRequest req) {
 		return userService.save(u, req);
 	}
-	
+
 	@PatchMapping()
 	public ResponseEntity<User> update(@RequestBody User u, HttpServletRequest req) {
 		return userService.update(u, req);
 	}
-	
+
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody CredentialDto credentials, HttpServletRequest req) {
 		User user = userService.login(credentials);
@@ -67,6 +72,5 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
-	
+
 }

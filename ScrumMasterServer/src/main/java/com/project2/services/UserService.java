@@ -67,5 +67,9 @@ public class UserService {
 			return new ResponseEntity<User>(HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	public User getScrumMaster() {
+		return userRepo.getOneScrumMaster();
+	}
 	
 }
