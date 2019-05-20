@@ -61,11 +61,11 @@ export class NavComponent extends React.Component<any, INavBarState> {
 
             <NavItem eventKey="questionMaster">
               <NavIcon>
-                <Link to="/questionMaster"> <img alt="Question Master"
+                <Link to="/question-master"> <img alt="Question Master"
                   src="https://img.icons8.com/nolan/45/000000/ask-question.png"></img></Link>
               </NavIcon>
               <NavText>
-                <Link to="/questionMaster"><h5 className="nav_text titles">Question Master</h5></Link>
+                <Link to="/question-master"><h5 className="nav_text titles">Question Master</h5></Link>
               </NavText>
             </NavItem>
 

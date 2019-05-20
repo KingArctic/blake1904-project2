@@ -4,23 +4,23 @@ import { User } from '../../model/user';
 import { Question } from '../../model/question';
 
 
-interface IQuestionProps {
+interface IQuestionCardProps {
     question: Question;
-    user: User;
+
 }
 
-export class questionCardComponent extends React.Component<IQuestionProps> {
+export class QuestionCardComponent extends React.Component<IQuestionCardProps> {
 
   render() {
     return (
         <div>
         <Card id="user-info-content" >
             <CardBody>
-                <CardTitle><h5 className="titles">{this.props.question.question}</h5></CardTitle>
-                <Button >{this.props.question.wrongAnswerA}</Button>
-                <Button>{this.props.question.wrongAnswerB}</Button>
-                <Button>{this.props.question.wrongAnswerC}</Button>
-                <Button>{this.props.question.answer}</Button>
+                <CardTitle><h5 className="titles">What is my name?</h5></CardTitle>
+                <Button >Danea</Button>
+                <Button>Denae</Button>
+                <Button>Dana</Button>
+                <Button>Danae</Button>
             </CardBody>
         </Card>
     </div>

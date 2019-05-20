@@ -6,12 +6,12 @@ import QuoteComponent from '../QuoteComponent';
 import Description from './DescriptionComponent';
 
 //import NewUserComponent from './RegisterForm';
-//import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
+import { ScrollingScoreboardComponent } from '../scoreboard/scrolling-scoreboard.component';
 import SignInComponent from '../sign-in/sign-in.component';
 
 export class HomeComponent extends React.Component {
 
-  aUser = new User(undefined, undefined, "name", undefined, undefined, undefined, undefined, undefined, [], undefined, [],[],[],[],[],[],[]);
+  aUser = new User(undefined, undefined, "name", undefined, undefined, undefined, undefined, undefined, []);
   point = 80;
   topic = 1;
 
@@ -20,15 +20,18 @@ export class HomeComponent extends React.Component {
       <div>
         <div className="homeContainer">
           <div className="home_center">
+          
             <UserCard user={this.aUser} />
+            Current Scrum Master
             <Description />
 
             <QuoteComponent />
           </div>
-          <div >
+          <div className="sign_in">
             <SignInComponent />
           </div>
         </div>
+        {/* <ScrollingScoreboardComponent /> */}
       </div>
 
     );
