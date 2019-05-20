@@ -4,9 +4,9 @@ export class Question {
     questionId: number;
     question: string;
     answer: string;
-    wrongAnswerA: string;
-    wrongAnswerB: string;
-    wrongAnswerC: string;
+    wrong1: string;
+    wrong2: string;
+    wrong3: string;
     questionTypeId: QuestionType;
     difficulty: number;
     
@@ -17,9 +17,9 @@ export class Question {
         this.questionId = questionId;
         this.question = question;
         this.answer = answer;
-        this.wrongAnswerA = wrongAnswerA;
-        this.wrongAnswerB = wrongAnswerB;
-        this.wrongAnswerC = wrongAnswerC;
+        this.wrong1 = wrongAnswerA;
+        this.wrong2 = wrongAnswerB;
+        this.wrong3 = wrongAnswerC;
         this.questionTypeId = questionTypeId;
         this.difficulty = difficulty;
 
