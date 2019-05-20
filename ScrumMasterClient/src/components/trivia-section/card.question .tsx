@@ -6,13 +6,16 @@ import { Question } from '../../model/question';
 
 interface IQuestionCardProps {
     question: Question;
+    category: string;
+    user: User;
 
 }
 
 export class QuestionCardComponent extends React.Component<IQuestionCardProps> {
 
   render() {
-  const answers = ['answer', 'wrong 1', 'wrong 2', 'wrong 3']
+     
+  const answers = [this.props.question.answer, this.props.question.wrong1, this.props.question.wrong2 , this.props.question.wrong3]
   let random = [-1, -1, -1, -1];
   let counter = 0;
 
@@ -38,7 +41,7 @@ export class QuestionCardComponent extends React.Component<IQuestionCardProps> {
         <div>
         <Card id="user-info-content" >
             <CardBody>
-                <CardTitle><h5 className="titles">What is my name?</h5></CardTitle>
+                <CardTitle><h5 className="titles">{this.props.question.question}</h5></CardTitle>
                 <div className="column ">
                 <Button >{answers[random[0]]}</Button>
                 <Button>{answers[random[1]]}</Button>
